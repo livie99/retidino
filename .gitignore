@@ -1,0 +1,14 @@
+aptos/*
+!aptos/train.csv
+
+
+dino
+
+log
+
+results/vanilla/*
+!results/vanilla/checkpoint.pth
+!results/vanilla/log.txt
+
+
+*.pth

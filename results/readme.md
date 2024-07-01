@@ -1,0 +1,1 @@
+This folder contains the results after training, e.g. weights 
