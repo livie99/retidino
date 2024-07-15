@@ -1,8 +1,11 @@
 aptos/*
 !aptos/train.csv
 
+ignore
 
-dino
+
+dino/*
+!dino/eval_lr.py
 
 log
 
@@ -11,4 +14,4 @@ results/vanilla/*
 !results/vanilla/log.txt
 
 
-*.pth
+*.pth*
