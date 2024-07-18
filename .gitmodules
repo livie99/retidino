@@ -1,3 +1,4 @@
 [submodule "dino"]
 	path = dino
 	url = git@github.com:facebookresearch/dino.git
+	ignore = dirty

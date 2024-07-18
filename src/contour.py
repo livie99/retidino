@@ -5,9 +5,7 @@ import numpy as np
 
 def contour (dir, name):
     # Load the image
-
     image = cv2.imread(os.path.join(dir, name))
-    
 
     # Check if the image was loaded successfully
     if image is not None:
@@ -31,8 +29,7 @@ def contour (dir, name):
         # Convert the image to grayscale
         gray = cv2.cvtColor(equalized, cv2.COLOR_BGR2GRAY)
         
-
-        # TODO : Change the parameters to detect the circle when n_field is 1
+        # Apply Gaussian blur to the image
         detected_circles = cv2.HoughCircles(gray,
                             cv2.HOUGH_GRADIENT,
                             minDist=500,
@@ -43,7 +40,6 @@ def contour (dir, name):
                             maxRadius=1200)
         
         # Create a mask of the circle
-        
         mask = np.zeros_like(gray)
         cropped_images = []
         if detected_circles is not None:
@@ -67,28 +63,44 @@ def contour (dir, name):
                 cropped_images.append(crop_image)
                 mask = np.zeros_like(mask)
             
-            print("Image processed successfully.")
+            # print("Image processed successfully.", flush=False)
             return cropped_images
         
         else:
-            print("No circle detected. Consider change the parameters.")
+            # print("No circle detected. Consider change the parameters.", flush=False)
             return None
     
     else:
         print("Failed to load the image.")
 
+def contour_check(dir, name):
+    ## check why there are more than 10 circles detected in some images
+    imgs = contour(dir,name)
 
-eg_folder = "/home/livieymli/t1riskengine/data/mosaics_graded/0"
-img_names = os.listdir(eg_folder)
-# "0Rp0s1uuT49.JPG", "4ZsJDePixV9.JPG", "5TPpSXP4o19.JPG", "GaAdwh7HJR9.JPG", "1dATStS8ze9.JPG","AIbXchFteW9.JPG","47phE2Pb3O9.JPG"
-for _,name in enumerate(img_names):
-    images = contour(eg_folder, name)
-    name = name.split(".")[0]
-    if images is not None:
-        # Save the cropped image
-        # for i,img in enumerate(images):
-        #     crop_path = f"/home/livieymli/retidino/ignore/cropped_{name}_{i}.jpg"
-        #     cv2.imwrite(crop_path, img)
-        print(len(images), flush=True)
-    else:
-        pass
+    for i,img in enumerate(imgs):
+        crop_path = f"/home/livieymli/retidino/ignore/cropped_{name}_{i}.jpg"
+        cv2.imwrite(crop_path, img)
+
+    return None 
+
+def main():
+    root_folder = "/home/livieymli/t1riskengine/data/mosaics_graded"
+    for label in range(0,5):
+        eg_folder = os.path.join(root_folder, str(label))
+        img_names = os.listdir(eg_folder)
+        img_names.sort()
+        for _,name in enumerate(img_names):
+            images = contour(eg_folder, name)
+            # name = name.split(".")[0]
+            if images is not None:
+                # Save the cropped image
+                # for i,img in enumerate(images):
+                #     crop_path = f"/home/livieymli/retidino/ignore/cropped_{name}_{i}.jpg"
+                #     cv2.imwrite(crop_path, img)
+                print(f"{label}, {name}, {len(images)}", flush=True)
+            else:
+                print(f"{label}, {name}, -1", flush=True)
+                # pass
+
+if __name__ == "__main__":
+    main()
