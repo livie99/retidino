@@ -1,0 +1,1554 @@
+/home/livieymli/miniforge3/envs/cu39/lib/python3.9/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+| distributed init (rank 2): env://
+| distributed init (rank 3): env://
+| distributed init (rank 1): env://
+| distributed init (rank 0): env://
+git:
+  sha: 7c446df5b9f45747937fb0d72314eb9f7b66930a, status: has uncommited changes, branch: main
+
+arch: vit_small
+avgpool_patchtokens: False
+batch_size_per_gpu: 128
+checkpoint_key: teacher
+data_path: aptos/train_images
+dist_url: env://
+epochs: 100
+evaluate: False
+gpu: 0
+local_rank: 0
+lr: 0.001
+n_last_blocks: 4
+num_labels: 5
+num_workers: 10
+output_dir: results/eval_linear
+patch_size: 16
+pretrained_weights: results/vanilla/checkpoint.pth
+rank: 0
+val_freq: 1
+world_size: 4
+Take key teacher in provided checkpoint dict
+Pretrained weights found at results/vanilla/checkpoint.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v'])
+Model vit_small built.
+/home/livieymli/miniforge3/envs/cu39/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+/home/livieymli/miniforge3/envs/cu39/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+/home/livieymli/miniforge3/envs/cu39/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+/home/livieymli/miniforge3/envs/cu39/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+Data loaded with 2929 train and 733 val imgs.
+Epoch: [0]  [0/6]  eta: 0:31:14  lr: 0.002000  loss: 1.747396 (1.747396)  time: 312.457672  data: 305.554169  max mem: 826
+Epoch: [0]  [5/6]  eta: 0:00:52  lr: 0.002000  loss: 1.277243 (1.370292)  time: 52.327698  data: 50.935375  max mem: 973
+Epoch: [0] Total time: 0:05:14 (52.426022 s / it)
+Averaged stats: lr: 0.002000  loss: 1.277243 (1.368733)
+Test:  [0/6]  eta: 0:22:14  loss: 0.423567 (0.423567)  c_kappa: 0.000000 (0.000000)  acc1: 85.156250 (85.156250)  acc5: 100.000000 (100.000000)  time: 222.457214  data: 222.378937  max mem: 973
+Test:  [5/6]  eta: 0:00:56  loss: 0.669337 (1.126357)  c_kappa: 0.000000 (0.047646)  acc1: 72.656250 (67.667121)  acc5: 100.000000 (100.000000)  time: 56.021469  data: 55.947720  max mem: 974
+Test: Total time: 0:05:37 (56.167749 s / it)
+* Acc@1 67.667 Acc@5 100.000 Cohens Kappa 0.048 loss 1.126
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 5,  0, 29,  0,  0],
+        [ 4,  0, 55,  0,  0]], device='cuda:0')
+Accuracy at epoch 0 of the network on the 733 test images: 67.7%
+Max accuracy so far: 67.67%
+Epoch: [1]  [0/6]  eta: 0:28:34  lr: 0.002000  loss: 1.247305 (1.247305)  time: 285.791229  data: 282.745331  max mem: 974
+Epoch: [1]  [5/6]  eta: 0:00:47  lr: 0.002000  loss: 1.028225 (1.045417)  time: 47.899593  data: 47.132931  max mem: 974
+Epoch: [1] Total time: 0:04:48 (48.046810 s / it)
+Averaged stats: lr: 0.002000  loss: 1.028225 (0.982253)
+Test:  [0/6]  eta: 0:22:12  loss: 0.234763 (0.234763)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.019318  data: 221.942612  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.424532 (0.963402)  c_kappa: 0.000000 (0.073717)  acc1: 60.156250 (65.757162)  acc5: 100.000000 (100.000000)  time: 55.845600  data: 55.772137  max mem: 974
+Test: Total time: 0:05:35 (55.994930 s / it)
+* Acc@1 65.757 Acc@5 100.000 Cohens Kappa 0.074 loss 0.963
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [10,  9, 15,  0,  0],
+        [ 9, 14, 35,  0,  1]], device='cuda:0')
+Accuracy at epoch 1 of the network on the 733 test images: 65.8%
+Max accuracy so far: 67.67%
+Epoch: [2]  [0/6]  eta: 0:28:26  lr: 0.001998  loss: 1.046360 (1.046360)  time: 284.429016  data: 277.895569  max mem: 974
+Epoch: [2]  [5/6]  eta: 0:00:47  lr: 0.001998  loss: 0.936040 (0.941655)  time: 47.813251  data: 46.582569  max mem: 974
+Epoch: [2] Total time: 0:04:47 (47.963678 s / it)
+Averaged stats: lr: 0.001998  loss: 0.936040 (0.938873)
+Test:  [0/6]  eta: 0:22:12  loss: 0.277485 (0.277485)  c_kappa: 0.000000 (0.000000)  acc1: 92.187500 (92.187500)  acc5: 100.000000 (100.000000)  time: 222.022278  data: 221.945480  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.570134 (0.945021)  c_kappa: 0.003700 (0.074826)  acc1: 78.125000 (70.804911)  acc5: 100.000000 (100.000000)  time: 55.844440  data: 55.771011  max mem: 974
+Test: Total time: 0:05:35 (55.983394 s / it)
+* Acc@1 70.805 Acc@5 100.000 Cohens Kappa 0.075 loss 0.945
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 24,  2,  0],
+        [ 7,  0, 48,  3,  1]], device='cuda:0')
+Accuracy at epoch 2 of the network on the 733 test images: 70.8%
+Max accuracy so far: 70.80%
+Epoch: [3]  [0/6]  eta: 0:28:41  lr: 0.001996  loss: 0.983059 (0.983059)  time: 286.917969  data: 280.772125  max mem: 974
+Epoch: [3]  [5/6]  eta: 0:00:47  lr: 0.001996  loss: 0.949762 (0.957198)  time: 47.888012  data: 46.795467  max mem: 974
+Epoch: [3] Total time: 0:04:48 (48.030003 s / it)
+Averaged stats: lr: 0.001996  loss: 0.949762 (0.919954)
+Test:  [0/6]  eta: 0:22:11  loss: 0.279293 (0.279293)  c_kappa: 0.000000 (0.000000)  acc1: 91.406250 (91.406250)  acc5: 100.000000 (100.000000)  time: 221.857132  data: 221.780106  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.466902 (0.946146)  c_kappa: 0.000000 (0.061932)  acc1: 75.781250 (68.212824)  acc5: 100.000000 (100.000000)  time: 55.848812  data: 55.775665  max mem: 974
+Test: Total time: 0:05:35 (55.985903 s / it)
+* Acc@1 68.213 Acc@5 100.000 Cohens Kappa 0.062 loss 0.946
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  9, 18,  0,  0],
+        [ 7, 14, 38,  0,  0]], device='cuda:0')
+Accuracy at epoch 3 of the network on the 733 test images: 68.2%
+Max accuracy so far: 70.80%
+Epoch: [4]  [0/6]  eta: 0:28:29  lr: 0.001992  loss: 1.088350 (1.088350)  time: 284.929657  data: 284.855072  max mem: 974
+Epoch: [4]  [5/6]  eta: 0:00:47  lr: 0.001992  loss: 0.965387 (0.964223)  time: 47.829723  data: 47.477062  max mem: 974
+Epoch: [4] Total time: 0:04:47 (47.979068 s / it)
+Averaged stats: lr: 0.001992  loss: 0.965387 (0.897257)
+Test:  [0/6]  eta: 0:22:14  loss: 0.268035 (0.268035)  c_kappa: 0.000000 (0.000000)  acc1: 92.187500 (92.187500)  acc5: 100.000000 (100.000000)  time: 222.347961  data: 222.270630  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.464302 (0.924272)  c_kappa: 0.000000 (0.073760)  acc1: 71.875000 (68.485675)  acc5: 100.000000 (100.000000)  time: 55.849682  data: 55.776516  max mem: 974
+Test: Total time: 0:05:35 (55.995785 s / it)
+* Acc@1 68.486 Acc@5 100.000 Cohens Kappa 0.074 loss 0.924
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  7, 18,  0,  1],
+        [ 7,  7, 38,  0,  7]], device='cuda:0')
+Accuracy at epoch 4 of the network on the 733 test images: 68.5%
+Max accuracy so far: 70.80%
+Epoch: [5]  [0/6]  eta: 0:28:20  lr: 0.001988  loss: 0.905988 (0.905988)  time: 283.480652  data: 283.405762  max mem: 974
+Epoch: [5]  [5/6]  eta: 0:00:47  lr: 0.001988  loss: 0.797097 (0.828265)  time: 47.856808  data: 47.777607  max mem: 974
+Epoch: [5] Total time: 0:04:48 (48.005976 s / it)
+Averaged stats: lr: 0.001988  loss: 0.797097 (0.887226)
+Test:  [0/6]  eta: 0:22:10  loss: 0.251640 (0.251640)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 221.816544  data: 221.739777  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.483306 (0.919144)  c_kappa: 0.000000 (0.060267)  acc1: 78.125000 (70.941337)  acc5: 100.000000 (100.000000)  time: 55.801983  data: 55.728664  max mem: 974
+Test: Total time: 0:05:35 (55.945570 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.060 loss 0.919
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 26,  0,  0],
+        [ 7,  0, 52,  0,  0]], device='cuda:0')
+Accuracy at epoch 5 of the network on the 733 test images: 70.9%
+Max accuracy so far: 70.94%
+Epoch: [6]  [0/6]  eta: 0:28:39  lr: 0.001982  loss: 0.859011 (0.859011)  time: 286.535858  data: 282.401611  max mem: 974
+Epoch: [6]  [5/6]  eta: 0:00:47  lr: 0.001982  loss: 0.818188 (0.846009)  time: 47.824879  data: 47.067017  max mem: 974
+Epoch: [6] Total time: 0:04:47 (47.968190 s / it)
+Averaged stats: lr: 0.001982  loss: 0.818188 (0.868901)
+Test:  [0/6]  eta: 0:22:13  loss: 0.247391 (0.247391)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.174133  data: 222.097122  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.426757 (0.908839)  c_kappa: 0.000000 (0.059843)  acc1: 78.906250 (70.804911)  acc5: 100.000000 (100.000000)  time: 55.844315  data: 55.770878  max mem: 974
+Test: Total time: 0:05:35 (55.978668 s / it)
+* Acc@1 70.805 Acc@5 100.000 Cohens Kappa 0.060 loss 0.909
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 26,  0,  0],
+        [ 6,  3, 50,  0,  0]], device='cuda:0')
+Accuracy at epoch 6 of the network on the 733 test images: 70.8%
+Max accuracy so far: 70.94%
+Epoch: [7]  [0/6]  eta: 0:28:25  lr: 0.001976  loss: 0.814356 (0.814356)  time: 284.188354  data: 284.113617  max mem: 974
+Epoch: [7]  [5/6]  eta: 0:00:47  lr: 0.001976  loss: 0.814356 (0.842489)  time: 47.867645  data: 47.354904  max mem: 974
+Epoch: [7] Total time: 0:04:48 (48.012468 s / it)
+Averaged stats: lr: 0.001976  loss: 0.814356 (0.843223)
+Test:  [0/6]  eta: 0:22:12  loss: 0.276266 (0.276266)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.087082  data: 222.009949  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.472802 (0.888271)  c_kappa: 0.000000 (0.057462)  acc1: 78.125000 (70.668486)  acc5: 100.000000 (100.000000)  time: 55.824009  data: 55.750889  max mem: 974
+Test: Total time: 0:05:35 (55.961445 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.057 loss 0.888
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  3, 52,  0,  0]], device='cuda:0')
+Accuracy at epoch 7 of the network on the 733 test images: 70.7%
+Max accuracy so far: 70.94%
+Epoch: [8]  [0/6]  eta: 0:28:39  lr: 0.001969  loss: 0.921961 (0.921961)  time: 286.646332  data: 286.571625  max mem: 974
+Epoch: [8]  [5/6]  eta: 0:00:47  lr: 0.001969  loss: 0.857769 (0.870827)  time: 47.845215  data: 47.762009  max mem: 974
+Epoch: [8] Total time: 0:04:47 (47.993244 s / it)
+Averaged stats: lr: 0.001969  loss: 0.857769 (0.837589)
+Test:  [0/6]  eta: 0:22:13  loss: 0.255777 (0.255777)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.240021  data: 222.162918  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.427921 (0.892188)  c_kappa: 0.000000 (0.066946)  acc1: 79.687500 (69.713506)  acc5: 100.000000 (100.000000)  time: 55.809719  data: 55.736572  max mem: 974
+Test: Total time: 0:05:35 (55.954740 s / it)
+* Acc@1 69.714 Acc@5 100.000 Cohens Kappa 0.067 loss 0.892
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  4, 22,  0,  0],
+        [ 5,  8, 46,  0,  0]], device='cuda:0')
+Accuracy at epoch 8 of the network on the 733 test images: 69.7%
+Max accuracy so far: 70.94%
+Epoch: [9]  [0/6]  eta: 0:28:41  lr: 0.001960  loss: 0.855301 (0.855301)  time: 286.839630  data: 280.753845  max mem: 974
+Epoch: [9]  [5/6]  eta: 0:00:47  lr: 0.001960  loss: 0.826181 (0.811847)  time: 47.873993  data: 46.798492  max mem: 974
+Epoch: [9] Total time: 0:04:48 (48.024760 s / it)
+Averaged stats: lr: 0.001960  loss: 0.826181 (0.837435)
+Test:  [0/6]  eta: 0:22:11  loss: 0.241181 (0.241181)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 221.983810  data: 221.907288  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.454086 (0.883728)  c_kappa: 0.000000 (0.058190)  acc1: 78.906250 (70.804911)  acc5: 100.000000 (100.000000)  time: 55.819866  data: 55.746796  max mem: 974
+Test: Total time: 0:05:35 (55.953013 s / it)
+* Acc@1 70.805 Acc@5 100.000 Cohens Kappa 0.058 loss 0.884
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 5,  0, 54,  0,  0]], device='cuda:0')
+Accuracy at epoch 9 of the network on the 733 test images: 70.8%
+Max accuracy so far: 70.94%
+Epoch: [10]  [0/6]  eta: 0:28:11  lr: 0.001951  loss: 0.862810 (0.862810)  time: 281.872986  data: 272.669342  max mem: 974
+Epoch: [10]  [5/6]  eta: 0:00:47  lr: 0.001951  loss: 0.852074 (0.837277)  time: 47.958099  data: 46.145222  max mem: 974
+Epoch: [10] Total time: 0:04:48 (48.104738 s / it)
+Averaged stats: lr: 0.001951  loss: 0.852074 (0.830646)
+Test:  [0/6]  eta: 0:22:13  loss: 0.248890 (0.248890)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.183762  data: 222.106003  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.434092 (0.883605)  c_kappa: 0.000000 (0.059854)  acc1: 79.687500 (70.259209)  acc5: 100.000000 (100.000000)  time: 55.897152  data: 55.823650  max mem: 974
+Test: Total time: 0:05:36 (56.030473 s / it)
+* Acc@1 70.259 Acc@5 100.000 Cohens Kappa 0.060 loss 0.884
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  4, 50,  0,  1]], device='cuda:0')
+Accuracy at epoch 10 of the network on the 733 test images: 70.3%
+Max accuracy so far: 70.94%
+Epoch: [11]  [0/6]  eta: 0:28:45  lr: 0.001941  loss: 0.966891 (0.966891)  time: 287.639038  data: 287.564026  max mem: 974
+Epoch: [11]  [5/6]  eta: 0:00:48  lr: 0.001941  loss: 0.873556 (0.858636)  time: 48.004333  data: 47.927418  max mem: 974
+Epoch: [11] Total time: 0:04:48 (48.154852 s / it)
+Averaged stats: lr: 0.001941  loss: 0.873556 (0.828227)
+Test:  [0/6]  eta: 0:22:13  loss: 0.262053 (0.262053)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.214630  data: 222.137222  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.456086 (0.876230)  c_kappa: 0.000000 (0.056344)  acc1: 78.125000 (70.668486)  acc5: 100.000000 (100.000000)  time: 55.975338  data: 55.901917  max mem: 974
+Test: Total time: 0:05:36 (56.108511 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.056 loss 0.876
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  2, 53,  0,  0]], device='cuda:0')
+Accuracy at epoch 11 of the network on the 733 test images: 70.7%
+Max accuracy so far: 70.94%
+Epoch: [12]  [0/6]  eta: 0:28:07  lr: 0.001930  loss: 0.630828 (0.630828)  time: 281.250916  data: 257.004303  max mem: 974
+Epoch: [12]  [5/6]  eta: 0:00:47  lr: 0.001930  loss: 0.835377 (0.813667)  time: 47.918888  data: 42.847366  max mem: 974
+Epoch: [12] Total time: 0:04:48 (48.065782 s / it)
+Averaged stats: lr: 0.001930  loss: 0.835377 (0.833567)
+Test:  [0/6]  eta: 0:22:16  loss: 0.236566 (0.236566)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.801697  data: 222.724380  max mem: 974
+Test:  [5/6]  eta: 0:00:56  loss: 0.425938 (0.877771)  c_kappa: 0.000000 (0.059103)  acc1: 78.906250 (70.395634)  acc5: 100.000000 (100.000000)  time: 56.115849  data: 56.042568  max mem: 974
+Test: Total time: 0:05:37 (56.241937 s / it)
+* Acc@1 70.396 Acc@5 100.000 Cohens Kappa 0.059 loss 0.878
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 26,  0,  0],
+        [ 6,  3, 50,  0,  0]], device='cuda:0')
+Accuracy at epoch 12 of the network on the 733 test images: 70.4%
+Max accuracy so far: 70.94%
+Epoch: [13]  [0/6]  eta: 0:28:43  lr: 0.001918  loss: 0.829772 (0.829772)  time: 287.218323  data: 285.485992  max mem: 974
+Epoch: [13]  [5/6]  eta: 0:00:47  lr: 0.001918  loss: 0.781115 (0.795864)  time: 47.945843  data: 47.583706  max mem: 974
+Epoch: [13] Total time: 0:04:48 (48.097596 s / it)
+Averaged stats: lr: 0.001918  loss: 0.781115 (0.836976)
+Test:  [0/6]  eta: 0:22:13  loss: 0.242679 (0.242679)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.217667  data: 222.140366  max mem: 974
+Test:  [5/6]  eta: 0:00:56  loss: 0.436997 (0.874345)  c_kappa: 0.000000 (0.059673)  acc1: 78.125000 (70.668486)  acc5: 100.000000 (100.000000)  time: 56.214695  data: 56.141094  max mem: 974
+Test: Total time: 0:05:38 (56.339618 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.060 loss 0.874
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 26,  0,  0],
+        [ 5,  2, 52,  0,  0]], device='cuda:0')
+Accuracy at epoch 13 of the network on the 733 test images: 70.7%
+Max accuracy so far: 70.94%
+Epoch: [14]  [0/6]  eta: 0:28:45  lr: 0.001905  loss: 0.825572 (0.825572)  time: 287.533752  data: 282.411377  max mem: 974
+Epoch: [14]  [5/6]  eta: 0:00:48  lr: 0.001905  loss: 0.817246 (0.861898)  time: 48.068851  data: 47.071228  max mem: 974
+Epoch: [14] Total time: 0:04:49 (48.220278 s / it)
+Averaged stats: lr: 0.001905  loss: 0.817246 (0.834880)
+Test:  [0/6]  eta: 0:22:13  loss: 0.247126 (0.247126)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.275116  data: 222.197861  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.458453 (0.871763)  c_kappa: 0.000000 (0.058272)  acc1: 78.906250 (70.941337)  acc5: 100.000000 (100.000000)  time: 55.928955  data: 55.855602  max mem: 974
+Test: Total time: 0:05:36 (56.075352 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.058 loss 0.872
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 54,  0,  0]], device='cuda:0')
+Accuracy at epoch 14 of the network on the 733 test images: 70.9%
+Max accuracy so far: 70.94%
+Epoch: [15]  [0/6]  eta: 0:28:39  lr: 0.001891  loss: 0.869235 (0.869235)  time: 286.593719  data: 286.518646  max mem: 974
+Epoch: [15]  [5/6]  eta: 0:00:47  lr: 0.001891  loss: 0.820243 (0.851194)  time: 47.839199  data: 47.753189  max mem: 974
+Epoch: [15] Total time: 0:04:47 (47.984943 s / it)
+Averaged stats: lr: 0.001891  loss: 0.820243 (0.832192)
+Test:  [0/6]  eta: 0:22:15  loss: 0.244557 (0.244557)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.544724  data: 222.467392  max mem: 974
+Test:  [5/6]  eta: 0:00:56  loss: 0.431341 (0.875719)  c_kappa: 0.000000 (0.057389)  acc1: 78.125000 (70.532060)  acc5: 100.000000 (100.000000)  time: 56.202240  data: 56.128780  max mem: 974
+Test: Total time: 0:05:38 (56.336035 s / it)
+* Acc@1 70.532 Acc@5 100.000 Cohens Kappa 0.057 loss 0.876
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 53,  0,  0]], device='cuda:0')
+Accuracy at epoch 15 of the network on the 733 test images: 70.5%
+Max accuracy so far: 70.94%
+Epoch: [16]  [0/6]  eta: 0:28:35  lr: 0.001876  loss: 0.834210 (0.834210)  time: 285.936798  data: 285.861694  max mem: 974
+Epoch: [16]  [5/6]  eta: 0:00:48  lr: 0.001876  loss: 0.827371 (0.830037)  time: 48.044056  data: 47.647766  max mem: 974
+Epoch: [16] Total time: 0:04:49 (48.192713 s / it)
+Averaged stats: lr: 0.001876  loss: 0.827371 (0.832392)
+Test:  [0/6]  eta: 0:22:12  loss: 0.250334 (0.250334)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.050064  data: 221.972855  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.444235 (0.871120)  c_kappa: 0.000000 (0.054882)  acc1: 78.125000 (70.259209)  acc5: 100.000000 (100.000000)  time: 59.459911  data: 59.386120  max mem: 974
+Test: Total time: 0:05:57 (59.610792 s / it)
+* Acc@1 70.259 Acc@5 100.000 Cohens Kappa 0.055 loss 0.871
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 26,  0,  0],
+        [ 4,  4, 49,  0,  2]], device='cuda:0')
+Accuracy at epoch 16 of the network on the 733 test images: 70.3%
+Max accuracy so far: 70.94%
+Epoch: [17]  [0/6]  eta: 0:28:36  lr: 0.001861  loss: 0.859768 (0.859768)  time: 286.144775  data: 286.069916  max mem: 974
+Epoch: [17]  [5/6]  eta: 0:00:48  lr: 0.001861  loss: 0.828189 (0.880522)  time: 48.935863  data: 47.681004  max mem: 974
+Epoch: [17] Total time: 0:04:54 (49.082458 s / it)
+Averaged stats: lr: 0.001861  loss: 0.828189 (0.843540)
+Test:  [0/6]  eta: 0:22:28  loss: 0.231517 (0.231517)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 224.813278  data: 224.735703  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.426864 (0.876049)  c_kappa: 0.000000 (0.059132)  acc1: 78.906250 (70.532060)  acc5: 100.000000 (100.000000)  time: 59.004948  data: 58.931591  max mem: 974
+Test: Total time: 0:05:54 (59.150538 s / it)
+* Acc@1 70.532 Acc@5 100.000 Cohens Kappa 0.059 loss 0.876
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  0, 26,  0,  0],
+        [ 4,  4, 50,  0,  1]], device='cuda:0')
+Accuracy at epoch 17 of the network on the 733 test images: 70.5%
+Max accuracy so far: 70.94%
+Epoch: [18]  [0/6]  eta: 0:28:17  lr: 0.001844  loss: 0.702446 (0.702446)  time: 282.989258  data: 270.561066  max mem: 974
+Epoch: [18]  [5/6]  eta: 0:00:48  lr: 0.001844  loss: 0.743888 (0.782089)  time: 48.568363  data: 45.103989  max mem: 974
+Epoch: [18] Total time: 0:04:52 (48.716662 s / it)
+Averaged stats: lr: 0.001844  loss: 0.743888 (0.812629)
+Test:  [0/6]  eta: 0:22:13  loss: 0.244696 (0.244696)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.223099  data: 222.145996  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.440793 (0.873984)  c_kappa: 0.000000 (0.056426)  acc1: 78.125000 (70.804911)  acc5: 100.000000 (100.000000)  time: 60.255951  data: 60.182449  max mem: 974
+Test: Total time: 0:06:02 (60.401389 s / it)
+* Acc@1 70.805 Acc@5 100.000 Cohens Kappa 0.056 loss 0.874
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 53,  0,  0]], device='cuda:0')
+Accuracy at epoch 18 of the network on the 733 test images: 70.8%
+Max accuracy so far: 70.94%
+Epoch: [19]  [0/6]  eta: 0:29:08  lr: 0.001827  loss: 0.821363 (0.821363)  time: 291.476593  data: 286.357117  max mem: 974
+Epoch: [19]  [5/6]  eta: 0:00:48  lr: 0.001827  loss: 0.770017 (0.765632)  time: 48.643986  data: 47.726257  max mem: 974
+Epoch: [19] Total time: 0:04:52 (48.793140 s / it)
+Averaged stats: lr: 0.001827  loss: 0.770017 (0.819689)
+Test:  [0/6]  eta: 0:22:28  loss: 0.255029 (0.255029)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 224.700485  data: 224.621979  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.442161 (0.866052)  c_kappa: 0.000000 (0.053015)  acc1: 78.125000 (70.122783)  acc5: 100.000000 (100.000000)  time: 59.330887  data: 59.256695  max mem: 974
+Test: Total time: 0:05:56 (59.480362 s / it)
+* Acc@1 70.123 Acc@5 100.000 Cohens Kappa 0.053 loss 0.866
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  4, 51,  0,  0]], device='cuda:0')
+Accuracy at epoch 19 of the network on the 733 test images: 70.1%
+Max accuracy so far: 70.94%
+Epoch: [20]  [0/6]  eta: 0:28:46  lr: 0.001809  loss: 0.841871 (0.841871)  time: 287.711090  data: 287.636230  max mem: 974
+Epoch: [20]  [5/6]  eta: 0:00:48  lr: 0.001809  loss: 0.817394 (0.802875)  time: 48.624668  data: 47.939465  max mem: 974
+Epoch: [20] Total time: 0:04:52 (48.781433 s / it)
+Averaged stats: lr: 0.001809  loss: 0.817394 (0.817767)
+Test:  [0/6]  eta: 0:22:17  loss: 0.230867 (0.230867)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.873734  data: 222.795914  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.435571 (0.871164)  c_kappa: 0.000000 (0.058272)  acc1: 78.906250 (71.077763)  acc5: 100.000000 (100.000000)  time: 60.845104  data: 60.771526  max mem: 974
+Test: Total time: 0:06:06 (61.000058 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.058 loss 0.871
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 5,  2, 52,  0,  0]], device='cuda:0')
+Accuracy at epoch 20 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.08%
+Epoch: [21]  [0/6]  eta: 0:29:18  lr: 0.001790  loss: 0.721513 (0.721513)  time: 293.148132  data: 279.277924  max mem: 974
+Epoch: [21]  [5/6]  eta: 0:00:49  lr: 0.001790  loss: 0.821222 (0.795955)  time: 49.664272  data: 46.557709  max mem: 974
+Epoch: [21] Total time: 0:04:58 (49.817025 s / it)
+Averaged stats: lr: 0.001790  loss: 0.821222 (0.814911)
+Test:  [0/6]  eta: 0:22:30  loss: 0.237448 (0.237448)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 225.095383  data: 225.018372  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.433981 (0.868989)  c_kappa: 0.000000 (0.061375)  acc1: 78.906250 (70.804911)  acc5: 100.000000 (100.000000)  time: 59.370373  data: 59.296722  max mem: 974
+Test: Total time: 0:05:57 (59.520691 s / it)
+* Acc@1 70.805 Acc@5 100.000 Cohens Kappa 0.061 loss 0.869
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 53,  0,  0]], device='cuda:0')
+Accuracy at epoch 21 of the network on the 733 test images: 70.8%
+Max accuracy so far: 71.08%
+Epoch: [22]  [0/6]  eta: 0:29:24  lr: 0.001771  loss: 0.747720 (0.747720)  time: 294.099548  data: 294.024292  max mem: 974
+Epoch: [22]  [5/6]  eta: 0:00:49  lr: 0.001771  loss: 0.764766 (0.841480)  time: 49.088451  data: 49.004150  max mem: 974
+Epoch: [22] Total time: 0:04:55 (49.240456 s / it)
+Averaged stats: lr: 0.001771  loss: 0.764766 (0.826918)
+Test:  [0/6]  eta: 0:22:12  loss: 0.248400 (0.248400)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.014297  data: 221.936691  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.443841 (0.863781)  c_kappa: 0.000000 (0.056145)  acc1: 78.125000 (70.941337)  acc5: 100.000000 (100.000000)  time: 60.253574  data: 60.180023  max mem: 974
+Test: Total time: 0:06:02 (60.406208 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.056 loss 0.864
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 51,  0,  3]], device='cuda:0')
+Accuracy at epoch 22 of the network on the 733 test images: 70.9%
+Max accuracy so far: 71.08%
+Epoch: [23]  [0/6]  eta: 0:28:37  lr: 0.001750  loss: 0.768735 (0.768735)  time: 286.222137  data: 283.638794  max mem: 974
+Epoch: [23]  [5/6]  eta: 0:00:49  lr: 0.001750  loss: 0.918351 (0.890112)  time: 49.931820  data: 49.440632  max mem: 974
+Epoch: [23] Total time: 0:05:00 (50.088151 s / it)
+Averaged stats: lr: 0.001750  loss: 0.918351 (0.826114)
+Test:  [0/6]  eta: 0:22:28  loss: 0.232886 (0.232886)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 224.717117  data: 224.639847  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.436956 (0.865823)  c_kappa: 0.000000 (0.058272)  acc1: 78.906250 (71.077763)  acc5: 100.000000 (100.000000)  time: 59.165741  data: 59.092068  max mem: 974
+Test: Total time: 0:05:55 (59.313410 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.058 loss 0.866
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 5,  2, 52,  0,  0]], device='cuda:0')
+Accuracy at epoch 23 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.08%
+Epoch: [24]  [0/6]  eta: 0:28:13  lr: 0.001729  loss: 0.694548 (0.694548)  time: 282.232178  data: 261.007202  max mem: 974
+Epoch: [24]  [5/6]  eta: 0:00:48  lr: 0.001729  loss: 0.796216 (0.820807)  time: 48.539734  data: 43.506474  max mem: 974
+Epoch: [24] Total time: 0:04:52 (48.693624 s / it)
+Averaged stats: lr: 0.001729  loss: 0.796216 (0.827964)
+Test:  [0/6]  eta: 0:22:06  loss: 0.233736 (0.233736)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.021408  data: 220.944260  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.421752 (0.865564)  c_kappa: 0.000000 (0.072512)  acc1: 81.250000 (70.668486)  acc5: 100.000000 (100.000000)  time: 60.619488  data: 60.545551  max mem: 974
+Test: Total time: 0:06:04 (60.765614 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.073 loss 0.866
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4, 10, 44,  0,  1]], device='cuda:0')
+Accuracy at epoch 24 of the network on the 733 test images: 70.7%
+Max accuracy so far: 71.08%
+Epoch: [25]  [0/6]  eta: 0:30:09  lr: 0.001707  loss: 0.783795 (0.783795)  time: 301.611511  data: 282.906342  max mem: 974
+Epoch: [25]  [5/6]  eta: 0:00:50  lr: 0.001707  loss: 0.783795 (0.827605)  time: 50.331051  data: 47.151165  max mem: 974
+Epoch: [25] Total time: 0:05:02 (50.484281 s / it)
+Averaged stats: lr: 0.001707  loss: 0.783795 (0.827646)
+Test:  [0/6]  eta: 0:22:25  loss: 0.247000 (0.247000)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 224.305847  data: 224.228363  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.451427 (0.860334)  c_kappa: 0.000000 (0.058123)  acc1: 78.125000 (71.077763)  acc5: 100.000000 (100.000000)  time: 59.517811  data: 59.443802  max mem: 974
+Test: Total time: 0:05:57 (59.658136 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.058 loss 0.860
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 49,  0,  5]], device='cuda:0')
+Accuracy at epoch 25 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.08%
+Epoch: [26]  [0/6]  eta: 0:28:37  lr: 0.001685  loss: 0.612173 (0.612173)  time: 286.328064  data: 281.898651  max mem: 974
+Epoch: [26]  [5/6]  eta: 0:00:48  lr: 0.001685  loss: 0.723850 (0.764695)  time: 48.495361  data: 47.378368  max mem: 974
+Epoch: [26] Total time: 0:04:51 (48.649940 s / it)
+Averaged stats: lr: 0.001685  loss: 0.723850 (0.815522)
+Test:  [0/6]  eta: 0:22:20  loss: 0.244646 (0.244646)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 223.442764  data: 223.365952  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.429718 (0.864237)  c_kappa: 0.000000 (0.067166)  acc1: 81.250000 (70.941337)  acc5: 100.000000 (100.000000)  time: 60.649097  data: 60.575817  max mem: 974
+Test: Total time: 0:06:04 (60.804370 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.067 loss 0.864
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  5, 47,  0,  3]], device='cuda:0')
+Accuracy at epoch 26 of the network on the 733 test images: 70.9%
+Max accuracy so far: 71.08%
+Epoch: [27]  [0/6]  eta: 0:29:09  lr: 0.001661  loss: 0.878413 (0.878413)  time: 291.644836  data: 291.569855  max mem: 974
+Epoch: [27]  [5/6]  eta: 0:00:49  lr: 0.001661  loss: 0.765651 (0.810279)  time: 49.461658  data: 48.595062  max mem: 974
+Epoch: [27] Total time: 0:04:57 (49.611284 s / it)
+Averaged stats: lr: 0.001661  loss: 0.765651 (0.811982)
+Test:  [0/6]  eta: 0:22:32  loss: 0.230482 (0.230482)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 225.339096  data: 225.262009  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.441455 (0.866098)  c_kappa: 0.000000 (0.056426)  acc1: 78.125000 (70.941337)  acc5: 100.000000 (100.000000)  time: 59.658497  data: 59.584606  max mem: 974
+Test: Total time: 0:05:58 (59.811683 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.056 loss 0.866
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 54,  0,  0]], device='cuda:0')
+Accuracy at epoch 27 of the network on the 733 test images: 70.9%
+Max accuracy so far: 71.08%
+Epoch: [28]  [0/6]  eta: 0:29:28  lr: 0.001637  loss: 0.859354 (0.859354)  time: 294.742340  data: 283.257324  max mem: 974
+Epoch: [28]  [5/6]  eta: 0:00:49  lr: 0.001637  loss: 0.811635 (0.839535)  time: 49.189213  data: 47.209644  max mem: 974
+Epoch: [28] Total time: 0:04:56 (49.341093 s / it)
+Averaged stats: lr: 0.001637  loss: 0.811635 (0.829096)
+Test:  [0/6]  eta: 0:22:18  loss: 0.228199 (0.228199)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 223.010254  data: 222.932159  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.426916 (0.858037)  c_kappa: 0.000000 (0.065697)  acc1: 81.250000 (71.077763)  acc5: 100.000000 (100.000000)  time: 60.973743  data: 60.900127  max mem: 974
+Test: Total time: 0:06:06 (61.122282 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.066 loss 0.858
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  5, 47,  0,  3]], device='cuda:0')
+Accuracy at epoch 28 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.08%
+Epoch: [29]  [0/6]  eta: 0:28:46  lr: 0.001613  loss: 0.913975 (0.913975)  time: 287.764587  data: 281.729126  max mem: 974
+Epoch: [29]  [5/6]  eta: 0:00:50  lr: 0.001613  loss: 0.840203 (0.818081)  time: 50.015854  data: 48.949230  max mem: 974
+Epoch: [29] Total time: 0:05:01 (50.175494 s / it)
+Averaged stats: lr: 0.001613  loss: 0.840203 (0.812336)
+Test:  [0/6]  eta: 0:22:31  loss: 0.250290 (0.250290)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 225.289520  data: 225.212265  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.451175 (0.865681)  c_kappa: 0.000000 (0.057975)  acc1: 78.125000 (71.214188)  acc5: 100.000000 (100.000000)  time: 59.377853  data: 59.304111  max mem: 974
+Test: Total time: 0:05:57 (59.525078 s / it)
+* Acc@1 71.214 Acc@5 100.000 Cohens Kappa 0.058 loss 0.866
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  0, 55,  0,  0]], device='cuda:0')
+Accuracy at epoch 29 of the network on the 733 test images: 71.2%
+Max accuracy so far: 71.21%
+Epoch: [30]  [0/6]  eta: 0:28:57  lr: 0.001588  loss: 0.824992 (0.824992)  time: 289.565643  data: 289.490601  max mem: 974
+Epoch: [30]  [5/6]  eta: 0:00:48  lr: 0.001588  loss: 0.848859 (0.871867)  time: 48.558086  data: 48.248531  max mem: 974
+Epoch: [30] Total time: 0:04:52 (48.711518 s / it)
+Averaged stats: lr: 0.001588  loss: 0.848859 (0.819734)
+Test:  [0/6]  eta: 0:22:12  loss: 0.225195 (0.225195)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.070160  data: 221.993118  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.405391 (0.865803)  c_kappa: 0.000000 (0.093610)  acc1: 70.312500 (69.304229)  acc5: 100.000000 (100.000000)  time: 60.524342  data: 60.451019  max mem: 974
+Test: Total time: 0:06:04 (60.676164 s / it)
+* Acc@1 69.304 Acc@5 100.000 Cohens Kappa 0.094 loss 0.866
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 8,  3, 23,  0,  0],
+        [ 6, 14, 38,  0,  1]], device='cuda:0')
+Accuracy at epoch 30 of the network on the 733 test images: 69.3%
+Max accuracy so far: 71.21%
+Epoch: [31]  [0/6]  eta: 0:28:22  lr: 0.001562  loss: 0.875607 (0.875607)  time: 283.718231  data: 282.161438  max mem: 974
+Epoch: [31]  [5/6]  eta: 0:00:49  lr: 0.001562  loss: 0.855862 (0.823479)  time: 49.812023  data: 48.217529  max mem: 974
+Epoch: [31] Total time: 0:04:59 (49.958513 s / it)
+Averaged stats: lr: 0.001562  loss: 0.855862 (0.822571)
+Test:  [0/6]  eta: 0:22:24  loss: 0.247391 (0.247391)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 224.026672  data: 223.949188  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.451119 (0.856234)  c_kappa: 0.000000 (0.057277)  acc1: 78.125000 (71.077763)  acc5: 100.000000 (100.000000)  time: 59.571228  data: 59.497833  max mem: 974
+Test: Total time: 0:05:58 (59.723389 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.057 loss 0.856
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 53,  0,  1]], device='cuda:0')
+Accuracy at epoch 31 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.21%
+Epoch: [32]  [0/6]  eta: 0:28:33  lr: 0.001536  loss: 0.805739 (0.805739)  time: 285.643585  data: 268.705658  max mem: 974
+Epoch: [32]  [5/6]  eta: 0:00:48  lr: 0.001536  loss: 0.805739 (0.843343)  time: 48.509357  data: 44.788456  max mem: 974
+Epoch: [32] Total time: 0:04:52 (48.667877 s / it)
+Averaged stats: lr: 0.001536  loss: 0.805739 (0.819238)
+Test:  [0/6]  eta: 0:22:14  loss: 0.243623 (0.243623)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.367706  data: 222.290085  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.427830 (0.860287)  c_kappa: 0.000000 (0.068194)  acc1: 81.250000 (71.077763)  acc5: 100.000000 (100.000000)  time: 60.930202  data: 60.856556  max mem: 974
+Test: Total time: 0:06:06 (61.081310 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.068 loss 0.860
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  4, 48,  0,  3]], device='cuda:0')
+Accuracy at epoch 32 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.21%
+Epoch: [33]  [0/6]  eta: 0:28:41  lr: 0.001509  loss: 0.753391 (0.753391)  time: 286.895569  data: 286.820618  max mem: 974
+Epoch: [33]  [5/6]  eta: 0:00:48  lr: 0.001509  loss: 0.758440 (0.784037)  time: 48.476498  data: 47.807384  max mem: 974
+Epoch: [33] Total time: 0:04:51 (48.631527 s / it)
+Averaged stats: lr: 0.001509  loss: 0.758440 (0.809074)
+Test:  [0/6]  eta: 0:22:45  loss: 0.238870 (0.238870)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 227.587662  data: 227.510788  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.443229 (0.860129)  c_kappa: 0.000000 (0.063317)  acc1: 78.906250 (71.623465)  acc5: 100.000000 (100.000000)  time: 58.717365  data: 58.644299  max mem: 974
+Test: Total time: 0:05:53 (58.868399 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.063 loss 0.860
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 5,  0, 49,  0,  5]], device='cuda:0')
+Accuracy at epoch 33 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.62%
+Epoch: [34]  [0/6]  eta: 0:28:32  lr: 0.001482  loss: 0.814794 (0.814794)  time: 285.361786  data: 285.286896  max mem: 974
+Epoch: [34]  [5/6]  eta: 0:00:48  lr: 0.001482  loss: 0.842062 (0.859777)  time: 48.395325  data: 47.550549  max mem: 974
+Epoch: [34] Total time: 0:04:51 (48.548689 s / it)
+Averaged stats: lr: 0.001482  loss: 0.842062 (0.811491)
+Test:  [0/6]  eta: 0:22:13  loss: 0.237803 (0.237803)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.307816  data: 222.231064  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.422036 (0.860776)  c_kappa: 0.000000 (0.068047)  acc1: 80.468750 (71.077763)  acc5: 100.000000 (100.000000)  time: 60.508457  data: 60.435028  max mem: 974
+Test: Total time: 0:06:03 (60.655909 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.068 loss 0.861
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  4, 48,  0,  3]], device='cuda:0')
+Accuracy at epoch 34 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.62%
+Epoch: [35]  [0/6]  eta: 0:28:35  lr: 0.001454  loss: 0.821066 (0.821066)  time: 285.938782  data: 285.863922  max mem: 974
+Epoch: [35]  [5/6]  eta: 0:00:49  lr: 0.001454  loss: 0.821066 (0.828067)  time: 49.559017  data: 47.644085  max mem: 974
+Epoch: [35] Total time: 0:04:58 (49.713369 s / it)
+Averaged stats: lr: 0.001454  loss: 0.821066 (0.812442)
+Test:  [0/6]  eta: 0:22:29  loss: 0.237334 (0.237334)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 224.964905  data: 224.887802  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.440657 (0.857825)  c_kappa: 0.000000 (0.055725)  acc1: 78.906250 (70.941337)  acc5: 100.000000 (100.000000)  time: 58.970886  data: 58.897491  max mem: 974
+Test: Total time: 0:05:54 (59.114534 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.056 loss 0.858
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  4, 48,  0,  3]], device='cuda:0')
+Accuracy at epoch 35 of the network on the 733 test images: 70.9%
+Max accuracy so far: 71.62%
+Epoch: [36]  [0/6]  eta: 0:28:16  lr: 0.001426  loss: 0.727570 (0.727570)  time: 282.788239  data: 282.713074  max mem: 974
+Epoch: [36]  [5/6]  eta: 0:00:48  lr: 0.001426  loss: 0.817894 (0.817403)  time: 48.534683  data: 47.118938  max mem: 974
+Epoch: [36] Total time: 0:04:52 (48.686266 s / it)
+Averaged stats: lr: 0.001426  loss: 0.817894 (0.827600)
+Test:  [0/6]  eta: 0:22:10  loss: 0.238767 (0.238767)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 221.695221  data: 221.618103  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.412165 (0.862951)  c_kappa: 0.000000 (0.072368)  acc1: 80.468750 (70.532060)  acc5: 100.000000 (100.000000)  time: 60.635525  data: 60.562027  max mem: 974
+Test: Total time: 0:06:04 (60.782323 s / it)
+* Acc@1 70.532 Acc@5 100.000 Cohens Kappa 0.072 loss 0.863
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4, 10, 44,  0,  1]], device='cuda:0')
+Accuracy at epoch 36 of the network on the 733 test images: 70.5%
+Max accuracy so far: 71.62%
+Epoch: [37]  [0/6]  eta: 0:29:04  lr: 0.001397  loss: 0.905423 (0.905423)  time: 290.691559  data: 258.100739  max mem: 974
+Epoch: [37]  [5/6]  eta: 0:00:49  lr: 0.001397  loss: 0.872328 (0.825739)  time: 49.338226  data: 43.845428  max mem: 974
+Epoch: [37] Total time: 0:04:56 (49.487457 s / it)
+Averaged stats: lr: 0.001397  loss: 0.872328 (0.824669)
+Test:  [0/6]  eta: 0:22:21  loss: 0.241292 (0.241292)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 223.514664  data: 223.437241  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.434184 (0.858939)  c_kappa: 0.000000 (0.060623)  acc1: 78.906250 (70.941337)  acc5: 100.000000 (100.000000)  time: 58.876434  data: 58.802582  max mem: 974
+Test: Total time: 0:05:54 (59.019905 s / it)
+* Acc@1 70.941 Acc@5 100.000 Cohens Kappa 0.061 loss 0.859
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 50,  0,  3]], device='cuda:0')
+Accuracy at epoch 37 of the network on the 733 test images: 70.9%
+Max accuracy so far: 71.62%
+Epoch: [38]  [0/6]  eta: 0:28:20  lr: 0.001368  loss: 0.627378 (0.627378)  time: 283.464630  data: 278.598907  max mem: 974
+Epoch: [38]  [5/6]  eta: 0:00:48  lr: 0.001368  loss: 0.865274 (0.832769)  time: 48.115170  data: 47.243916  max mem: 974
+Epoch: [38] Total time: 0:04:49 (48.268843 s / it)
+Averaged stats: lr: 0.001368  loss: 0.865274 (0.817629)
+Test:  [0/6]  eta: 0:22:19  loss: 0.234869 (0.234869)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 223.316254  data: 223.239334  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.422922 (0.858091)  c_kappa: 0.000000 (0.069150)  acc1: 79.687500 (70.668486)  acc5: 100.000000 (100.000000)  time: 60.912151  data: 60.838848  max mem: 974
+Test: Total time: 0:06:06 (61.056284 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.069 loss 0.858
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 5,  4, 45,  0,  5]], device='cuda:0')
+Accuracy at epoch 38 of the network on the 733 test images: 70.7%
+Max accuracy so far: 71.62%
+Epoch: [39]  [0/6]  eta: 0:28:45  lr: 0.001339  loss: 0.839339 (0.839339)  time: 287.543365  data: 278.111115  max mem: 974
+Epoch: [39]  [5/6]  eta: 0:00:48  lr: 0.001339  loss: 0.799457 (0.819709)  time: 48.731182  data: 46.695877  max mem: 974
+Epoch: [39] Total time: 0:04:53 (48.883434 s / it)
+Averaged stats: lr: 0.001339  loss: 0.799457 (0.816761)
+Test:  [0/6]  eta: 0:22:23  loss: 0.236197 (0.236197)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 223.942337  data: 223.864471  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.430040 (0.858534)  c_kappa: 0.000000 (0.060705)  acc1: 78.906250 (71.077763)  acc5: 100.000000 (100.000000)  time: 58.549194  data: 58.475941  max mem: 974
+Test: Total time: 0:05:52 (58.696245 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.061 loss 0.859
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 51,  0,  3]], device='cuda:0')
+Accuracy at epoch 39 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.62%
+Epoch: [40]  [0/6]  eta: 0:28:41  lr: 0.001309  loss: 0.796551 (0.796551)  time: 286.929749  data: 284.074738  max mem: 974
+Epoch: [40]  [5/6]  eta: 0:00:48  lr: 0.001309  loss: 0.796551 (0.809892)  time: 48.012234  data: 47.345890  max mem: 974
+Epoch: [40] Total time: 0:04:48 (48.162604 s / it)
+Averaged stats: lr: 0.001309  loss: 0.796551 (0.812504)
+Test:  [0/6]  eta: 0:22:13  loss: 0.239534 (0.239534)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.327896  data: 222.251022  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.434255 (0.857732)  c_kappa: 0.000000 (0.058494)  acc1: 78.906250 (70.668486)  acc5: 100.000000 (100.000000)  time: 60.082844  data: 60.009521  max mem: 974
+Test: Total time: 0:06:01 (60.227303 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.058 loss 0.858
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 51,  0,  3]], device='cuda:0')
+Accuracy at epoch 40 of the network on the 733 test images: 70.7%
+Max accuracy so far: 71.62%
+Epoch: [41]  [0/6]  eta: 0:28:45  lr: 0.001279  loss: 0.835122 (0.835122)  time: 287.502441  data: 266.454773  max mem: 974
+Epoch: [41]  [5/6]  eta: 0:00:47  lr: 0.001279  loss: 0.830758 (0.828603)  time: 47.989376  data: 44.418823  max mem: 974
+Epoch: [41] Total time: 0:04:48 (48.134803 s / it)
+Averaged stats: lr: 0.001279  loss: 0.830758 (0.804135)
+Test:  [0/6]  eta: 0:22:17  loss: 0.228955 (0.228955)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.836288  data: 222.759003  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.422039 (0.856607)  c_kappa: 0.000000 (0.082522)  acc1: 78.125000 (71.077763)  acc5: 100.000000 (100.000000)  time: 58.546600  data: 58.472668  max mem: 974
+Test: Total time: 0:05:52 (58.696110 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.083 loss 0.857
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  6, 43,  0,  6]], device='cuda:0')
+Accuracy at epoch 41 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.62%
+Epoch: [42]  [0/6]  eta: 0:28:26  lr: 0.001249  loss: 0.645899 (0.645899)  time: 284.413727  data: 281.189148  max mem: 974
+Epoch: [42]  [5/6]  eta: 0:00:48  lr: 0.001249  loss: 0.734632 (0.765200)  time: 48.368565  data: 46.864979  max mem: 974
+Epoch: [42] Total time: 0:04:51 (48.515913 s / it)
+Averaged stats: lr: 0.001249  loss: 0.734632 (0.817154)
+Test:  [0/6]  eta: 0:22:09  loss: 0.235728 (0.235728)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 221.582321  data: 221.504745  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.435021 (0.858825)  c_kappa: 0.000000 (0.059200)  acc1: 78.906250 (71.350614)  acc5: 100.000000 (100.000000)  time: 60.351654  data: 60.278034  max mem: 974
+Test: Total time: 0:06:02 (60.493134 s / it)
+* Acc@1 71.351 Acc@5 100.000 Cohens Kappa 0.059 loss 0.859
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 53,  0,  2]], device='cuda:0')
+Accuracy at epoch 42 of the network on the 733 test images: 71.4%
+Max accuracy so far: 71.62%
+Epoch: [43]  [0/6]  eta: 0:28:59  lr: 0.001218  loss: 0.949468 (0.949468)  time: 289.943115  data: 278.889862  max mem: 974
+Epoch: [43]  [5/6]  eta: 0:00:48  lr: 0.001218  loss: 0.799590 (0.815128)  time: 48.394836  data: 46.482891  max mem: 974
+Epoch: [43] Total time: 0:04:51 (48.542380 s / it)
+Averaged stats: lr: 0.001218  loss: 0.799590 (0.809709)
+Test:  [0/6]  eta: 0:22:15  loss: 0.237564 (0.237564)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.629135  data: 222.551956  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.433571 (0.853306)  c_kappa: 0.000000 (0.062539)  acc1: 79.687500 (71.350614)  acc5: 100.000000 (100.000000)  time: 59.332241  data: 59.258709  max mem: 974
+Test: Total time: 0:05:56 (59.478981 s / it)
+* Acc@1 71.351 Acc@5 100.000 Cohens Kappa 0.063 loss 0.853
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 51,  0,  3]], device='cuda:0')
+Accuracy at epoch 43 of the network on the 733 test images: 71.4%
+Max accuracy so far: 71.62%
+Epoch: [44]  [0/6]  eta: 0:27:48  lr: 0.001187  loss: 0.708884 (0.708884)  time: 278.066376  data: 272.645203  max mem: 974
+Epoch: [44]  [5/6]  eta: 0:00:47  lr: 0.001187  loss: 0.812020 (0.826669)  time: 47.963909  data: 46.208447  max mem: 974
+Epoch: [44] Total time: 0:04:48 (48.112618 s / it)
+Averaged stats: lr: 0.001187  loss: 0.812020 (0.806283)
+Test:  [0/6]  eta: 0:22:17  loss: 0.240727 (0.240727)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.944656  data: 222.867416  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.434586 (0.856072)  c_kappa: 0.000000 (0.062813)  acc1: 79.687500 (71.759891)  acc5: 100.000000 (100.000000)  time: 60.494610  data: 60.420940  max mem: 974
+Test: Total time: 0:06:03 (60.641020 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.063 loss 0.856
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  1, 51,  0,  3]], device='cuda:0')
+Accuracy at epoch 44 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [45]  [0/6]  eta: 0:28:24  lr: 0.001156  loss: 0.801309 (0.801309)  time: 284.016571  data: 277.805023  max mem: 974
+Epoch: [45]  [5/6]  eta: 0:00:48  lr: 0.001156  loss: 0.814891 (0.859668)  time: 48.885647  data: 46.713711  max mem: 974
+Epoch: [45] Total time: 0:04:54 (49.038279 s / it)
+Averaged stats: lr: 0.001156  loss: 0.814891 (0.815686)
+Test:  [0/6]  eta: 0:22:26  loss: 0.229839 (0.229839)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 224.392853  data: 224.315567  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.427572 (0.855882)  c_kappa: 0.000000 (0.067767)  acc1: 80.468750 (71.487040)  acc5: 100.000000 (100.000000)  time: 59.080246  data: 59.006786  max mem: 974
+Test: Total time: 0:05:55 (59.229800 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.068 loss 0.856
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  3, 48,  0,  4]], device='cuda:0')
+Accuracy at epoch 45 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [46]  [0/6]  eta: 0:28:31  lr: 0.001125  loss: 0.842222 (0.842222)  time: 285.299347  data: 283.360077  max mem: 974
+Epoch: [46]  [5/6]  eta: 0:00:48  lr: 0.001125  loss: 0.808293 (0.812553)  time: 48.266270  data: 47.557129  max mem: 974
+Epoch: [46] Total time: 0:04:50 (48.423966 s / it)
+Averaged stats: lr: 0.001125  loss: 0.808293 (0.814368)
+Test:  [0/6]  eta: 0:22:15  loss: 0.225741 (0.225741)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.554031  data: 222.476852  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.421986 (0.855375)  c_kappa: 0.000000 (0.071628)  acc1: 79.687500 (70.668486)  acc5: 100.000000 (100.000000)  time: 60.549267  data: 60.475697  max mem: 974
+Test: Total time: 0:06:04 (60.700502 s / it)
+* Acc@1 70.668 Acc@5 100.000 Cohens Kappa 0.072 loss 0.855
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 5,  7, 44,  0,  3]], device='cuda:0')
+Accuracy at epoch 46 of the network on the 733 test images: 70.7%
+Max accuracy so far: 71.76%
+Epoch: [47]  [0/6]  eta: 0:28:24  lr: 0.001094  loss: 0.810462 (0.810462)  time: 284.003143  data: 283.928345  max mem: 974
+Epoch: [47]  [5/6]  eta: 0:00:48  lr: 0.001094  loss: 0.810462 (0.824301)  time: 48.444813  data: 47.326458  max mem: 974
+Epoch: [47] Total time: 0:04:51 (48.590761 s / it)
+Averaged stats: lr: 0.001094  loss: 0.810462 (0.823738)
+Test:  [0/6]  eta: 0:22:17  loss: 0.235697 (0.235697)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.979111  data: 222.901581  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.441162 (0.854555)  c_kappa: 0.000000 (0.062650)  acc1: 78.906250 (71.759891)  acc5: 100.000000 (100.000000)  time: 58.772186  data: 58.698902  max mem: 974
+Test: Total time: 0:05:53 (58.918548 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.063 loss 0.855
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 53,  0,  2]], device='cuda:0')
+Accuracy at epoch 47 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [48]  [0/6]  eta: 0:28:29  lr: 0.001063  loss: 0.796528 (0.796528)  time: 284.981537  data: 284.517090  max mem: 974
+Epoch: [48]  [5/6]  eta: 0:00:48  lr: 0.001063  loss: 0.833787 (0.833909)  time: 48.505817  data: 47.419605  max mem: 974
+Epoch: [48] Total time: 0:04:51 (48.652081 s / it)
+Averaged stats: lr: 0.001063  loss: 0.833787 (0.810066)
+Test:  [0/6]  eta: 0:22:04  loss: 0.237715 (0.237715)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 220.715775  data: 220.639023  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.430009 (0.853546)  c_kappa: 0.000000 (0.062921)  acc1: 80.468750 (71.077763)  acc5: 100.000000 (100.000000)  time: 60.194439  data: 60.121063  max mem: 974
+Test: Total time: 0:06:02 (60.344480 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.063 loss 0.854
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  6, 46,  0,  3]], device='cuda:0')
+Accuracy at epoch 48 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.76%
+Epoch: [49]  [0/6]  eta: 0:28:53  lr: 0.001031  loss: 0.971720 (0.971720)  time: 288.896484  data: 263.131256  max mem: 974
+Epoch: [49]  [5/6]  eta: 0:00:48  lr: 0.001031  loss: 0.827103 (0.853645)  time: 48.461658  data: 43.858288  max mem: 974
+Epoch: [49] Total time: 0:04:51 (48.611994 s / it)
+Averaged stats: lr: 0.001031  loss: 0.827103 (0.811648)
+Test:  [0/6]  eta: 0:22:13  loss: 0.233142 (0.233142)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.324692  data: 222.247482  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.443246 (0.855803)  c_kappa: 0.000000 (0.060884)  acc1: 78.906250 (71.350614)  acc5: 100.000000 (100.000000)  time: 58.441513  data: 58.367756  max mem: 974
+Test: Total time: 0:05:51 (58.588453 s / it)
+* Acc@1 71.351 Acc@5 100.000 Cohens Kappa 0.061 loss 0.856
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 49 of the network on the 733 test images: 71.4%
+Max accuracy so far: 71.76%
+Epoch: [50]  [0/6]  eta: 0:28:28  lr: 0.001000  loss: 0.870764 (0.870764)  time: 284.755798  data: 279.407990  max mem: 974
+Epoch: [50]  [5/6]  eta: 0:00:48  lr: 0.001000  loss: 0.870764 (0.842691)  time: 48.039211  data: 47.080547  max mem: 974
+Epoch: [50] Total time: 0:04:49 (48.189215 s / it)
+Averaged stats: lr: 0.001000  loss: 0.870764 (0.817163)
+Test:  [0/6]  eta: 0:22:14  loss: 0.226242 (0.226242)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.429688  data: 222.352234  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.419353 (0.853992)  c_kappa: 0.000000 (0.068864)  acc1: 81.250000 (71.214188)  acc5: 100.000000 (100.000000)  time: 59.429203  data: 59.355801  max mem: 974
+Test: Total time: 0:05:57 (59.587382 s / it)
+* Acc@1 71.214 Acc@5 100.000 Cohens Kappa 0.069 loss 0.854
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  4, 48,  0,  3]], device='cuda:0')
+Accuracy at epoch 50 of the network on the 733 test images: 71.2%
+Max accuracy so far: 71.76%
+Epoch: [51]  [0/6]  eta: 0:28:43  lr: 0.000969  loss: 0.728088 (0.728088)  time: 287.187164  data: 287.112305  max mem: 974
+Epoch: [51]  [5/6]  eta: 0:00:47  lr: 0.000969  loss: 0.729111 (0.781559)  time: 47.939011  data: 47.852123  max mem: 974
+Epoch: [51] Total time: 0:04:48 (48.088180 s / it)
+Averaged stats: lr: 0.000969  loss: 0.729111 (0.812688)
+Test:  [0/6]  eta: 0:22:10  loss: 0.238772 (0.238772)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 221.705048  data: 221.628067  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.436271 (0.856176)  c_kappa: 0.000000 (0.060419)  acc1: 78.906250 (71.623465)  acc5: 100.000000 (100.000000)  time: 57.373474  data: 57.299973  max mem: 974
+Test: Total time: 0:05:45 (57.519189 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.060 loss 0.856
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  0, 53,  0,  2]], device='cuda:0')
+Accuracy at epoch 51 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.76%
+Epoch: [52]  [0/6]  eta: 0:28:43  lr: 0.000937  loss: 0.913906 (0.913906)  time: 287.229340  data: 282.456024  max mem: 974
+Epoch: [52]  [5/6]  eta: 0:00:48  lr: 0.000937  loss: 0.813954 (0.813610)  time: 48.071854  data: 47.076096  max mem: 974
+Epoch: [52] Total time: 0:04:49 (48.217054 s / it)
+Averaged stats: lr: 0.000937  loss: 0.813954 (0.818234)
+Test:  [0/6]  eta: 0:22:11  loss: 0.236804 (0.236804)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.992096  data: 221.915512  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.447150 (0.854863)  c_kappa: 0.000000 (0.060470)  acc1: 78.906250 (71.759891)  acc5: 100.000000 (100.000000)  time: 59.361416  data: 59.288219  max mem: 974
+Test: Total time: 0:05:57 (59.507227 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.060 loss 0.855
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 52,  0,  3]], device='cuda:0')
+Accuracy at epoch 52 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [53]  [0/6]  eta: 0:28:21  lr: 0.000906  loss: 0.971663 (0.971663)  time: 283.515656  data: 283.440582  max mem: 974
+Epoch: [53]  [5/6]  eta: 0:00:48  lr: 0.000906  loss: 0.699400 (0.791564)  time: 48.026325  data: 47.243488  max mem: 974
+Epoch: [53] Total time: 0:04:49 (48.174728 s / it)
+Averaged stats: lr: 0.000906  loss: 0.699400 (0.807969)
+Test:  [0/6]  eta: 0:22:16  loss: 0.222096 (0.222096)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.718338  data: 222.639603  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.406833 (0.855672)  c_kappa: 0.000000 (0.097077)  acc1: 73.437500 (70.532060)  acc5: 100.000000 (100.000000)  time: 58.553539  data: 58.479801  max mem: 974
+Test: Total time: 0:05:52 (58.697585 s / it)
+* Acc@1 70.532 Acc@5 100.000 Cohens Kappa 0.097 loss 0.856
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  2, 24,  0,  1],
+        [ 5, 10, 37,  0,  7]], device='cuda:0')
+Accuracy at epoch 53 of the network on the 733 test images: 70.5%
+Max accuracy so far: 71.76%
+Epoch: [54]  [0/6]  eta: 0:28:20  lr: 0.000875  loss: 0.676093 (0.676093)  time: 283.370758  data: 261.439484  max mem: 974
+Epoch: [54]  [5/6]  eta: 0:00:48  lr: 0.000875  loss: 0.769673 (0.790818)  time: 48.041950  data: 43.576839  max mem: 974
+Epoch: [54] Total time: 0:04:49 (48.195880 s / it)
+Averaged stats: lr: 0.000875  loss: 0.769673 (0.818791)
+Test:  [0/6]  eta: 0:22:21  loss: 0.228423 (0.228423)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 223.588303  data: 223.511246  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.445328 (0.858685)  c_kappa: 0.000000 (0.059691)  acc1: 78.906250 (71.487040)  acc5: 100.000000 (100.000000)  time: 60.525711  data: 60.452534  max mem: 974
+Test: Total time: 0:06:04 (60.673135 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.060 loss 0.859
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 53,  0,  2]], device='cuda:0')
+Accuracy at epoch 54 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [55]  [0/6]  eta: 0:28:41  lr: 0.000844  loss: 0.809266 (0.809266)  time: 286.909271  data: 248.353424  max mem: 974
+Epoch: [55]  [5/6]  eta: 0:00:48  lr: 0.000844  loss: 0.809266 (0.805811)  time: 48.391979  data: 41.885357  max mem: 974
+Epoch: [55] Total time: 0:04:51 (48.536348 s / it)
+Averaged stats: lr: 0.000844  loss: 0.809266 (0.800679)
+Test:  [0/6]  eta: 0:22:24  loss: 0.229907 (0.229907)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 224.125458  data: 224.048080  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.425819 (0.851851)  c_kappa: 0.000000 (0.068500)  acc1: 81.250000 (71.623465)  acc5: 100.000000 (100.000000)  time: 58.959179  data: 58.885494  max mem: 974
+Test: Total time: 0:05:54 (59.104184 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.068 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  3, 47,  0,  5]], device='cuda:0')
+Accuracy at epoch 55 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.76%
+Epoch: [56]  [0/6]  eta: 0:28:40  lr: 0.000813  loss: 0.759188 (0.759188)  time: 286.789246  data: 276.802734  max mem: 974
+Epoch: [56]  [5/6]  eta: 0:00:48  lr: 0.000813  loss: 0.775724 (0.829552)  time: 48.915752  data: 47.190456  max mem: 974
+Epoch: [56] Total time: 0:04:54 (49.065686 s / it)
+Averaged stats: lr: 0.000813  loss: 0.775724 (0.812724)
+Test:  [0/6]  eta: 0:22:18  loss: 0.241818 (0.241818)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 223.053772  data: 222.975540  max mem: 974
+Test:  [5/6]  eta: 0:01:01  loss: 0.432963 (0.854162)  c_kappa: 0.000000 (0.062539)  acc1: 79.687500 (71.077763)  acc5: 100.000000 (100.000000)  time: 61.023121  data: 60.949383  max mem: 974
+Test: Total time: 0:06:07 (61.171789 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.063 loss 0.854
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 50,  0,  3]], device='cuda:0')
+Accuracy at epoch 56 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.76%
+Epoch: [57]  [0/6]  eta: 0:29:05  lr: 0.000782  loss: 0.847902 (0.847902)  time: 290.951691  data: 277.525482  max mem: 974
+Epoch: [57]  [5/6]  eta: 0:00:49  lr: 0.000782  loss: 0.741771 (0.804793)  time: 49.134613  data: 46.258190  max mem: 974
+Epoch: [57] Total time: 0:04:55 (49.286216 s / it)
+Averaged stats: lr: 0.000782  loss: 0.741771 (0.805214)
+Test:  [0/6]  eta: 0:22:33  loss: 0.242146 (0.242146)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 225.638885  data: 225.561707  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.431056 (0.853001)  c_kappa: 0.000000 (0.064836)  acc1: 80.468750 (71.077763)  acc5: 100.000000 (100.000000)  time: 58.988922  data: 58.915302  max mem: 974
+Test: Total time: 0:05:54 (59.135907 s / it)
+* Acc@1 71.078 Acc@5 100.000 Cohens Kappa 0.065 loss 0.853
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  5, 47,  0,  3]], device='cuda:0')
+Accuracy at epoch 57 of the network on the 733 test images: 71.1%
+Max accuracy so far: 71.76%
+Epoch: [58]  [0/6]  eta: 0:28:23  lr: 0.000751  loss: 0.940066 (0.940066)  time: 283.951691  data: 265.553680  max mem: 974
+Epoch: [58]  [5/6]  eta: 0:00:48  lr: 0.000751  loss: 0.809649 (0.836516)  time: 48.397739  data: 44.266891  max mem: 974
+Epoch: [58] Total time: 0:04:51 (48.545496 s / it)
+Averaged stats: lr: 0.000751  loss: 0.809649 (0.805912)
+Test:  [0/6]  eta: 0:22:18  loss: 0.233148 (0.233148)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 223.139420  data: 223.062561  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.426600 (0.848798)  c_kappa: 0.000000 (0.067554)  acc1: 81.250000 (71.350614)  acc5: 100.000000 (100.000000)  time: 60.838909  data: 60.765614  max mem: 974
+Test: Total time: 0:06:05 (60.984788 s / it)
+* Acc@1 71.351 Acc@5 100.000 Cohens Kappa 0.068 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  3, 48,  0,  4]], device='cuda:0')
+Accuracy at epoch 58 of the network on the 733 test images: 71.4%
+Max accuracy so far: 71.76%
+Epoch: [59]  [0/6]  eta: 0:28:36  lr: 0.000721  loss: 0.721724 (0.721724)  time: 286.138611  data: 279.294617  max mem: 974
+Epoch: [59]  [5/6]  eta: 0:00:48  lr: 0.000721  loss: 0.787701 (0.844431)  time: 48.895435  data: 47.689667  max mem: 974
+Epoch: [59] Total time: 0:04:54 (49.042780 s / it)
+Averaged stats: lr: 0.000721  loss: 0.787701 (0.808809)
+Test:  [0/6]  eta: 0:22:26  loss: 0.231078 (0.231078)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 224.451035  data: 224.373886  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.447275 (0.852070)  c_kappa: 0.000000 (0.060369)  acc1: 78.906250 (71.623465)  acc5: 100.000000 (100.000000)  time: 59.244373  data: 59.171062  max mem: 974
+Test: Total time: 0:05:56 (59.397208 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.060 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 52,  0,  3]], device='cuda:0')
+Accuracy at epoch 59 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.76%
+Epoch: [60]  [0/6]  eta: 0:28:49  lr: 0.000691  loss: 1.032805 (1.032805)  time: 288.253418  data: 280.739655  max mem: 974
+Epoch: [60]  [5/6]  eta: 0:00:48  lr: 0.000691  loss: 0.802981 (0.874837)  time: 48.330536  data: 46.792286  max mem: 974
+Epoch: [60] Total time: 0:04:50 (48.476209 s / it)
+Averaged stats: lr: 0.000691  loss: 0.802981 (0.807944)
+Test:  [0/6]  eta: 0:22:18  loss: 0.230456 (0.230456)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 223.010330  data: 222.933563  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.423206 (0.855022)  c_kappa: 0.000000 (0.069386)  acc1: 81.250000 (71.487040)  acc5: 100.000000 (100.000000)  time: 60.241089  data: 60.167583  max mem: 974
+Test: Total time: 0:06:02 (60.387955 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.069 loss 0.855
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  3, 49,  0,  3]], device='cuda:0')
+Accuracy at epoch 60 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [61]  [0/6]  eta: 0:28:07  lr: 0.000661  loss: 0.748555 (0.748555)  time: 281.265869  data: 276.560730  max mem: 974
+Epoch: [61]  [5/6]  eta: 0:00:48  lr: 0.000661  loss: 0.756694 (0.850847)  time: 48.317917  data: 46.705097  max mem: 974
+Epoch: [61] Total time: 0:04:50 (48.471831 s / it)
+Averaged stats: lr: 0.000661  loss: 0.756694 (0.808024)
+Test:  [0/6]  eta: 0:22:11  loss: 0.233698 (0.233698)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 221.904999  data: 221.827499  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.415768 (0.853763)  c_kappa: 0.000000 (0.081359)  acc1: 82.812500 (71.214188)  acc5: 100.000000 (100.000000)  time: 58.652676  data: 58.579243  max mem: 974
+Test: Total time: 0:05:52 (58.803834 s / it)
+* Acc@1 71.214 Acc@5 100.000 Cohens Kappa 0.081 loss 0.854
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  1, 27,  0,  0],
+        [ 4,  7, 45,  0,  3]], device='cuda:0')
+Accuracy at epoch 61 of the network on the 733 test images: 71.2%
+Max accuracy so far: 71.76%
+Epoch: [62]  [0/6]  eta: 0:28:34  lr: 0.000632  loss: 0.674322 (0.674322)  time: 285.795685  data: 285.029388  max mem: 974
+Epoch: [62]  [5/6]  eta: 0:00:48  lr: 0.000632  loss: 0.728693 (0.797149)  time: 48.644894  data: 47.507641  max mem: 974
+Epoch: [62] Total time: 0:04:52 (48.790870 s / it)
+Averaged stats: lr: 0.000632  loss: 0.728693 (0.806294)
+Test:  [0/6]  eta: 0:22:13  loss: 0.236740 (0.236740)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.206543  data: 222.129562  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.445517 (0.850377)  c_kappa: 0.000000 (0.060583)  acc1: 78.906250 (71.759891)  acc5: 100.000000 (100.000000)  time: 60.661804  data: 60.588604  max mem: 974
+Test: Total time: 0:06:04 (60.807417 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.061 loss 0.850
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 52,  0,  3]], device='cuda:0')
+Accuracy at epoch 62 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [63]  [0/6]  eta: 0:28:48  lr: 0.000603  loss: 0.879048 (0.879048)  time: 288.093018  data: 269.954193  max mem: 974
+Epoch: [63]  [5/6]  eta: 0:00:48  lr: 0.000603  loss: 0.860695 (0.840586)  time: 48.349808  data: 45.000290  max mem: 974
+Epoch: [63] Total time: 0:04:50 (48.493014 s / it)
+Averaged stats: lr: 0.000603  loss: 0.860695 (0.813570)
+Test:  [0/6]  eta: 0:22:24  loss: 0.236300 (0.236300)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 224.002579  data: 223.925247  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.437243 (0.850730)  c_kappa: 0.000000 (0.059327)  acc1: 78.906250 (71.487040)  acc5: 100.000000 (100.000000)  time: 59.043468  data: 58.969830  max mem: 974
+Test: Total time: 0:05:55 (59.192215 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.059 loss 0.851
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  0, 53,  0,  2]], device='cuda:0')
+Accuracy at epoch 63 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [64]  [0/6]  eta: 0:28:16  lr: 0.000574  loss: 0.831629 (0.831629)  time: 282.724518  data: 274.529449  max mem: 974
+Epoch: [64]  [5/6]  eta: 0:00:48  lr: 0.000574  loss: 0.777997 (0.814485)  time: 48.470356  data: 45.765762  max mem: 974
+Epoch: [64] Total time: 0:04:51 (48.617396 s / it)
+Averaged stats: lr: 0.000574  loss: 0.777997 (0.804992)
+Test:  [0/6]  eta: 0:22:13  loss: 0.231872 (0.231872)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.295700  data: 222.218262  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.429368 (0.849459)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 59.568867  data: 59.495483  max mem: 974
+Test: Total time: 0:05:58 (59.711053 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  3, 48,  0,  4]], device='cuda:0')
+Accuracy at epoch 64 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [65]  [0/6]  eta: 0:28:22  lr: 0.000546  loss: 0.932925 (0.932925)  time: 283.751862  data: 282.350922  max mem: 974
+Epoch: [65]  [5/6]  eta: 0:00:48  lr: 0.000546  loss: 0.861001 (0.855282)  time: 48.242573  data: 47.060822  max mem: 974
+Epoch: [65] Total time: 0:04:50 (48.394156 s / it)
+Averaged stats: lr: 0.000546  loss: 0.861001 (0.808124)
+Test:  [0/6]  eta: 0:22:18  loss: 0.234648 (0.234648)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 223.040787  data: 222.963394  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.439505 (0.851759)  c_kappa: 0.000000 (0.060079)  acc1: 79.687500 (71.487040)  acc5: 100.000000 (100.000000)  time: 58.724747  data: 58.651150  max mem: 974
+Test: Total time: 0:05:53 (58.869632 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.060 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 65 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [66]  [0/6]  eta: 0:28:07  lr: 0.000518  loss: 0.724838 (0.724838)  time: 281.276276  data: 256.573547  max mem: 974
+Epoch: [66]  [5/6]  eta: 0:00:48  lr: 0.000518  loss: 0.790411 (0.794006)  time: 48.714931  data: 43.048557  max mem: 974
+Epoch: [66] Total time: 0:04:53 (48.863165 s / it)
+Averaged stats: lr: 0.000518  loss: 0.790411 (0.805368)
+Test:  [0/6]  eta: 0:22:18  loss: 0.234760 (0.234760)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 223.037491  data: 222.960526  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.430012 (0.851734)  c_kappa: 0.000000 (0.070230)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 60.350216  data: 60.276722  max mem: 974
+Test: Total time: 0:06:03 (60.500878 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 66 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [67]  [0/6]  eta: 0:28:10  lr: 0.000491  loss: 0.878512 (0.878512)  time: 281.712952  data: 275.075256  max mem: 974
+Epoch: [67]  [5/6]  eta: 0:00:48  lr: 0.000491  loss: 0.790346 (0.786264)  time: 48.024334  data: 45.852100  max mem: 974
+Epoch: [67] Total time: 0:04:49 (48.170585 s / it)
+Averaged stats: lr: 0.000491  loss: 0.790346 (0.804739)
+Test:  [0/6]  eta: 0:22:12  loss: 0.236843 (0.236843)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.082108  data: 222.004944  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.424705 (0.852280)  c_kappa: 0.000000 (0.069972)  acc1: 80.468750 (71.487040)  acc5: 100.000000 (100.000000)  time: 58.576847  data: 58.503101  max mem: 974
+Test: Total time: 0:05:52 (58.724909 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.070 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  1, 27,  0,  0],
+        [ 4,  5, 46,  0,  4]], device='cuda:0')
+Accuracy at epoch 67 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [68]  [0/6]  eta: 0:28:00  lr: 0.000464  loss: 0.872394 (0.872394)  time: 280.004639  data: 277.919464  max mem: 974
+Epoch: [68]  [5/6]  eta: 0:00:48  lr: 0.000464  loss: 0.759769 (0.781448)  time: 48.530243  data: 46.321224  max mem: 974
+Epoch: [68] Total time: 0:04:52 (48.686406 s / it)
+Averaged stats: lr: 0.000464  loss: 0.759769 (0.807719)
+Test:  [0/6]  eta: 0:22:11  loss: 0.240651 (0.240651)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 221.993423  data: 221.915268  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.443290 (0.851159)  c_kappa: 0.000000 (0.060005)  acc1: 78.906250 (71.623465)  acc5: 100.000000 (100.000000)  time: 60.648632  data: 60.574921  max mem: 974
+Test: Total time: 0:06:04 (60.801000 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.060 loss 0.851
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  0, 52,  0,  3]], device='cuda:0')
+Accuracy at epoch 68 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.76%
+Epoch: [69]  [0/6]  eta: 0:28:33  lr: 0.000438  loss: 0.802502 (0.802502)  time: 285.550110  data: 258.422058  max mem: 974
+Epoch: [69]  [5/6]  eta: 0:00:48  lr: 0.000438  loss: 0.788108 (0.813733)  time: 48.379955  data: 43.075466  max mem: 974
+Epoch: [69] Total time: 0:04:51 (48.531390 s / it)
+Averaged stats: lr: 0.000438  loss: 0.788108 (0.806111)
+Test:  [0/6]  eta: 0:22:18  loss: 0.238412 (0.238412)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 223.125824  data: 223.048615  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.439546 (0.850769)  c_kappa: 0.000000 (0.058502)  acc1: 78.906250 (71.623465)  acc5: 100.000000 (100.000000)  time: 58.740341  data: 58.667095  max mem: 974
+Test: Total time: 0:05:53 (58.893730 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.059 loss 0.851
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 69 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.76%
+Epoch: [70]  [0/6]  eta: 0:28:05  lr: 0.000412  loss: 0.730209 (0.730209)  time: 280.841248  data: 276.160767  max mem: 974
+Epoch: [70]  [5/6]  eta: 0:00:48  lr: 0.000412  loss: 0.751994 (0.802887)  time: 48.186275  data: 47.342312  max mem: 974
+Epoch: [70] Total time: 0:04:50 (48.337205 s / it)
+Averaged stats: lr: 0.000412  loss: 0.751994 (0.800525)
+Test:  [0/6]  eta: 0:22:14  loss: 0.233318 (0.233318)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.453125  data: 222.376175  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.429858 (0.850796)  c_kappa: 0.000000 (0.069247)  acc1: 81.250000 (71.623465)  acc5: 100.000000 (100.000000)  time: 59.764557  data: 59.690929  max mem: 974
+Test: Total time: 0:05:59 (59.923864 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.069 loss 0.851
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 70 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.76%
+Epoch: [71]  [0/6]  eta: 0:28:37  lr: 0.000387  loss: 0.855580 (0.855580)  time: 286.210205  data: 282.368256  max mem: 974
+Epoch: [71]  [5/6]  eta: 0:00:48  lr: 0.000387  loss: 0.766685 (0.790270)  time: 48.167843  data: 47.066006  max mem: 974
+Epoch: [71] Total time: 0:04:49 (48.315072 s / it)
+Averaged stats: lr: 0.000387  loss: 0.766685 (0.801902)
+Test:  [0/6]  eta: 0:22:21  loss: 0.230459 (0.230459)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 223.624146  data: 223.546219  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.418117 (0.851926)  c_kappa: 0.000000 (0.079912)  acc1: 82.031250 (71.350614)  acc5: 100.000000 (100.000000)  time: 59.027569  data: 58.954041  max mem: 974
+Test: Total time: 0:05:55 (59.181419 s / it)
+* Acc@1 71.351 Acc@5 100.000 Cohens Kappa 0.080 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  1, 26,  0,  0],
+        [ 4,  6, 44,  0,  5]], device='cuda:0')
+Accuracy at epoch 71 of the network on the 733 test images: 71.4%
+Max accuracy so far: 71.76%
+Epoch: [72]  [0/6]  eta: 0:29:01  lr: 0.000363  loss: 0.853493 (0.853493)  time: 290.253784  data: 260.716217  max mem: 974
+Epoch: [72]  [5/6]  eta: 0:00:48  lr: 0.000363  loss: 0.765473 (0.778504)  time: 48.450886  data: 43.461105  max mem: 974
+Epoch: [72] Total time: 0:04:51 (48.596000 s / it)
+Averaged stats: lr: 0.000363  loss: 0.765473 (0.813704)
+Test:  [0/6]  eta: 0:22:16  loss: 0.231038 (0.231038)  c_kappa: 0.000000 (0.000000)  acc1: 93.750000 (93.750000)  acc5: 100.000000 (100.000000)  time: 222.704636  data: 222.627686  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.431612 (0.851807)  c_kappa: 0.000000 (0.063309)  acc1: 79.687500 (71.487040)  acc5: 100.000000 (100.000000)  time: 60.466934  data: 60.393505  max mem: 974
+Test: Total time: 0:06:03 (60.612579 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.063 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 72 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [73]  [0/6]  eta: 0:28:25  lr: 0.000339  loss: 0.779941 (0.779941)  time: 284.280029  data: 281.377136  max mem: 974
+Epoch: [73]  [5/6]  eta: 0:00:48  lr: 0.000339  loss: 0.779750 (0.780656)  time: 48.834644  data: 46.896290  max mem: 974
+Epoch: [73] Total time: 0:04:53 (48.980785 s / it)
+Averaged stats: lr: 0.000339  loss: 0.779750 (0.802949)
+Test:  [0/6]  eta: 0:22:21  loss: 0.231029 (0.231029)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 223.544296  data: 223.467087  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.432335 (0.851846)  c_kappa: 0.000000 (0.063400)  acc1: 79.687500 (71.759891)  acc5: 100.000000 (100.000000)  time: 58.771023  data: 58.697659  max mem: 974
+Test: Total time: 0:05:53 (58.921350 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.063 loss 0.852
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 73 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [74]  [0/6]  eta: 0:28:35  lr: 0.000315  loss: 0.710887 (0.710887)  time: 285.957031  data: 278.485626  max mem: 974
+Epoch: [74]  [5/6]  eta: 0:00:47  lr: 0.000315  loss: 0.744716 (0.816624)  time: 47.882885  data: 46.416855  max mem: 974
+Epoch: [74] Total time: 0:04:48 (48.028925 s / it)
+Averaged stats: lr: 0.000315  loss: 0.744716 (0.809693)
+Test:  [0/6]  eta: 0:22:16  loss: 0.230662 (0.230662)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.746017  data: 222.668335  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.429605 (0.851128)  c_kappa: 0.000000 (0.063227)  acc1: 79.687500 (71.487040)  acc5: 100.000000 (100.000000)  time: 60.512619  data: 60.439068  max mem: 974
+Test: Total time: 0:06:04 (60.670867 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.063 loss 0.851
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 74 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.76%
+Epoch: [75]  [0/6]  eta: 0:28:54  lr: 0.000293  loss: 0.684067 (0.684067)  time: 289.145538  data: 283.947357  max mem: 974
+Epoch: [75]  [5/6]  eta: 0:00:49  lr: 0.000293  loss: 0.863941 (0.844167)  time: 49.181225  data: 48.253998  max mem: 974
+Epoch: [75] Total time: 0:04:56 (49.334682 s / it)
+Averaged stats: lr: 0.000293  loss: 0.863941 (0.805126)
+Test:  [0/6]  eta: 0:22:23  loss: 0.232128 (0.232128)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 223.910568  data: 223.833313  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.428237 (0.850324)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 59.008503  data: 58.935139  max mem: 974
+Test: Total time: 0:05:54 (59.162340 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.850
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 75 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.76%
+Epoch: [76]  [0/6]  eta: 0:29:00  lr: 0.000271  loss: 0.859064 (0.859064)  time: 290.041138  data: 285.311737  max mem: 974
+Epoch: [76]  [5/6]  eta: 0:00:48  lr: 0.000271  loss: 0.741356 (0.766879)  time: 48.536213  data: 47.552048  max mem: 974
+Epoch: [76] Total time: 0:04:52 (48.685893 s / it)
+Averaged stats: lr: 0.000271  loss: 0.741356 (0.804833)
+Test:  [0/6]  eta: 0:22:12  loss: 0.233878 (0.233878)  c_kappa: 0.000000 (0.000000)  acc1: 92.968750 (92.968750)  acc5: 100.000000 (100.000000)  time: 222.083878  data: 222.006577  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.429875 (0.849906)  c_kappa: 0.000000 (0.070422)  acc1: 81.250000 (71.896317)  acc5: 100.000000 (100.000000)  time: 59.570892  data: 59.497589  max mem: 974
+Test: Total time: 0:05:58 (59.723363 s / it)
+* Acc@1 71.896 Acc@5 100.000 Cohens Kappa 0.070 loss 0.850
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 76 of the network on the 733 test images: 71.9%
+Max accuracy so far: 71.90%
+Epoch: [77]  [0/6]  eta: 0:29:07  lr: 0.000250  loss: 0.765542 (0.765542)  time: 291.327545  data: 275.193695  max mem: 974
+Epoch: [77]  [5/6]  eta: 0:00:48  lr: 0.000250  loss: 0.689110 (0.742865)  time: 48.624981  data: 45.868443  max mem: 974
+Epoch: [77] Total time: 0:04:52 (48.780728 s / it)
+Averaged stats: lr: 0.000250  loss: 0.689110 (0.805832)
+Test:  [0/6]  eta: 0:22:13  loss: 0.231994 (0.231994)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.192474  data: 222.115448  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.435261 (0.849206)  c_kappa: 0.000000 (0.065595)  acc1: 79.687500 (71.896317)  acc5: 100.000000 (100.000000)  time: 57.310978  data: 57.237591  max mem: 974
+Test: Total time: 0:05:44 (57.463828 s / it)
+* Acc@1 71.896 Acc@5 100.000 Cohens Kappa 0.066 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 77 of the network on the 733 test images: 71.9%
+Max accuracy so far: 71.90%
+Epoch: [78]  [0/6]  eta: 0:28:52  lr: 0.000229  loss: 0.918455 (0.918455)  time: 288.819733  data: 285.649261  max mem: 974
+Epoch: [78]  [5/6]  eta: 0:00:48  lr: 0.000229  loss: 0.764267 (0.799548)  time: 48.207104  data: 47.608307  max mem: 974
+Epoch: [78] Total time: 0:04:50 (48.359088 s / it)
+Averaged stats: lr: 0.000229  loss: 0.764267 (0.804260)
+Test:  [0/6]  eta: 0:22:12  loss: 0.229217 (0.229217)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.051407  data: 221.973907  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.431635 (0.849251)  c_kappa: 0.000000 (0.063309)  acc1: 79.687500 (71.623465)  acc5: 100.000000 (100.000000)  time: 57.468967  data: 57.395550  max mem: 974
+Test: Total time: 0:05:45 (57.627278 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.063 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 78 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.90%
+Epoch: [79]  [0/6]  eta: 0:28:41  lr: 0.000210  loss: 0.781308 (0.781308)  time: 286.989563  data: 285.398926  max mem: 974
+Epoch: [79]  [5/6]  eta: 0:00:48  lr: 0.000210  loss: 0.818110 (0.821728)  time: 48.028172  data: 47.566574  max mem: 974
+Epoch: [79] Total time: 0:04:49 (48.183741 s / it)
+Averaged stats: lr: 0.000210  loss: 0.818110 (0.810480)
+Test:  [0/6]  eta: 0:22:12  loss: 0.229697 (0.229697)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.159698  data: 222.083099  max mem: 974
+Test:  [5/6]  eta: 0:00:56  loss: 0.429186 (0.849864)  c_kappa: 0.000000 (0.066673)  acc1: 80.468750 (71.623465)  acc5: 100.000000 (100.000000)  time: 56.804379  data: 56.731232  max mem: 974
+Test: Total time: 0:05:41 (56.944728 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.067 loss 0.850
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 79 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.90%
+Epoch: [80]  [0/6]  eta: 0:28:46  lr: 0.000191  loss: 0.759867 (0.759867)  time: 287.710358  data: 269.803802  max mem: 974
+Epoch: [80]  [5/6]  eta: 0:00:48  lr: 0.000191  loss: 0.728235 (0.764600)  time: 48.021896  data: 44.972805  max mem: 974
+Epoch: [80] Total time: 0:04:49 (48.169565 s / it)
+Averaged stats: lr: 0.000191  loss: 0.728235 (0.811862)
+Test:  [0/6]  eta: 0:22:09  loss: 0.231094 (0.231094)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.656204  data: 221.579498  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.431065 (0.850194)  c_kappa: 0.000000 (0.063227)  acc1: 79.687500 (71.487040)  acc5: 100.000000 (100.000000)  time: 57.850830  data: 57.777695  max mem: 974
+Test: Total time: 0:05:48 (58.003081 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.063 loss 0.850
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 80 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.90%
+Epoch: [81]  [0/6]  eta: 0:28:36  lr: 0.000173  loss: 0.716309 (0.716309)  time: 286.082367  data: 278.463623  max mem: 974
+Epoch: [81]  [5/6]  eta: 0:00:48  lr: 0.000173  loss: 0.775914 (0.790876)  time: 48.205296  data: 46.411926  max mem: 974
+Epoch: [81] Total time: 0:04:50 (48.349543 s / it)
+Averaged stats: lr: 0.000173  loss: 0.775914 (0.804636)
+Test:  [0/6]  eta: 0:22:06  loss: 0.232452 (0.232452)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.109100  data: 221.032059  max mem: 974
+Test:  [5/6]  eta: 0:00:56  loss: 0.431501 (0.850539)  c_kappa: 0.000000 (0.063227)  acc1: 79.687500 (71.487040)  acc5: 100.000000 (100.000000)  time: 56.871185  data: 56.797760  max mem: 974
+Test: Total time: 0:05:42 (57.018832 s / it)
+* Acc@1 71.487 Acc@5 100.000 Cohens Kappa 0.063 loss 0.851
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  0, 51,  0,  4]], device='cuda:0')
+Accuracy at epoch 81 of the network on the 733 test images: 71.5%
+Max accuracy so far: 71.90%
+Epoch: [82]  [0/6]  eta: 0:28:43  lr: 0.000156  loss: 0.800358 (0.800358)  time: 287.271301  data: 282.490936  max mem: 974
+Epoch: [82]  [5/6]  eta: 0:00:48  lr: 0.000156  loss: 0.800358 (0.810364)  time: 48.097515  data: 47.239674  max mem: 974
+Epoch: [82] Total time: 0:04:49 (48.244132 s / it)
+Averaged stats: lr: 0.000156  loss: 0.800358 (0.815513)
+Test:  [0/6]  eta: 0:22:09  loss: 0.232886 (0.232886)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.529114  data: 221.452728  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.429721 (0.849958)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 59.355419  data: 59.282421  max mem: 974
+Test: Total time: 0:05:57 (59.505420 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.850
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 82 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [83]  [0/6]  eta: 0:28:25  lr: 0.000139  loss: 0.706058 (0.706058)  time: 284.237671  data: 266.906525  max mem: 974
+Epoch: [83]  [5/6]  eta: 0:00:48  lr: 0.000139  loss: 0.779033 (0.794467)  time: 48.196796  data: 44.492970  max mem: 974
+Epoch: [83] Total time: 0:04:50 (48.350690 s / it)
+Averaged stats: lr: 0.000139  loss: 0.779033 (0.800170)
+Test:  [0/6]  eta: 0:22:10  loss: 0.232549 (0.232549)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.683838  data: 221.606979  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.430275 (0.848774)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 57.917744  data: 57.844410  max mem: 974
+Test: Total time: 0:05:48 (58.063305 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 83 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [84]  [0/6]  eta: 0:28:32  lr: 0.000124  loss: 0.668251 (0.668251)  time: 285.388855  data: 267.084015  max mem: 974
+Epoch: [84]  [5/6]  eta: 0:00:48  lr: 0.000124  loss: 0.728235 (0.769853)  time: 48.324680  data: 44.521442  max mem: 974
+Epoch: [84] Total time: 0:04:50 (48.475467 s / it)
+Averaged stats: lr: 0.000124  loss: 0.728235 (0.806847)
+Test:  [0/6]  eta: 0:22:17  loss: 0.232886 (0.232886)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.936127  data: 222.859070  max mem: 974
+Test:  [5/6]  eta: 0:01:00  loss: 0.431067 (0.848900)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 60.343479  data: 60.270401  max mem: 974
+Test: Total time: 0:06:02 (60.493642 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 6,  0, 28,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 84 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [85]  [0/6]  eta: 0:28:50  lr: 0.000109  loss: 0.770528 (0.770528)  time: 288.452454  data: 288.377808  max mem: 974
+Epoch: [85]  [5/6]  eta: 0:00:48  lr: 0.000109  loss: 0.770528 (0.794576)  time: 48.139465  data: 48.063049  max mem: 974
+Epoch: [85] Total time: 0:04:49 (48.286323 s / it)
+Averaged stats: lr: 0.000109  loss: 0.770528 (0.797749)
+Test:  [0/6]  eta: 0:22:13  loss: 0.231933 (0.231933)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.270691  data: 222.193680  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.430000 (0.849026)  c_kappa: 0.000000 (0.066673)  acc1: 80.468750 (71.623465)  acc5: 100.000000 (100.000000)  time: 57.770351  data: 57.696819  max mem: 974
+Test: Total time: 0:05:47 (57.919965 s / it)
+* Acc@1 71.623 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 85 of the network on the 733 test images: 71.6%
+Max accuracy so far: 71.90%
+Epoch: [86]  [0/6]  eta: 0:28:23  lr: 0.000095  loss: 0.893634 (0.893634)  time: 283.985626  data: 280.726440  max mem: 974
+Epoch: [86]  [5/6]  eta: 0:00:48  lr: 0.000095  loss: 0.763702 (0.788898)  time: 48.444202  data: 46.787838  max mem: 974
+Epoch: [86] Total time: 0:04:51 (48.592986 s / it)
+Averaged stats: lr: 0.000095  loss: 0.763702 (0.809214)
+Test:  [0/6]  eta: 0:22:09  loss: 0.232008 (0.232008)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.603363  data: 221.526520  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.429376 (0.848954)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 59.110218  data: 59.037125  max mem: 974
+Test: Total time: 0:05:55 (59.261940 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 86 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [87]  [0/6]  eta: 0:28:46  lr: 0.000082  loss: 0.704320 (0.704320)  time: 287.830475  data: 280.212128  max mem: 974
+Epoch: [87]  [5/6]  eta: 0:00:48  lr: 0.000082  loss: 0.800457 (0.796644)  time: 48.369038  data: 46.704784  max mem: 974
+Epoch: [87] Total time: 0:04:51 (48.516270 s / it)
+Averaged stats: lr: 0.000082  loss: 0.800457 (0.806770)
+Test:  [0/6]  eta: 0:22:09  loss: 0.231819 (0.231819)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.540771  data: 221.464310  max mem: 974
+Test:  [5/6]  eta: 0:00:58  loss: 0.428637 (0.848898)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 58.541553  data: 58.468155  max mem: 974
+Test: Total time: 0:05:52 (58.689200 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 87 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [88]  [0/6]  eta: 0:28:27  lr: 0.000070  loss: 0.817779 (0.817779)  time: 284.602966  data: 282.062469  max mem: 974
+Epoch: [88]  [5/6]  eta: 0:00:48  lr: 0.000070  loss: 0.770574 (0.766232)  time: 48.447281  data: 47.010498  max mem: 974
+Epoch: [88] Total time: 0:04:51 (48.594177 s / it)
+Averaged stats: lr: 0.000070  loss: 0.770574 (0.821507)
+Test:  [0/6]  eta: 0:22:06  loss: 0.231714 (0.231714)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.101074  data: 221.023911  max mem: 974
+Test:  [5/6]  eta: 0:00:59  loss: 0.429321 (0.849131)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 59.569553  data: 59.496265  max mem: 974
+Test: Total time: 0:05:58 (59.711054 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 88 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [89]  [0/6]  eta: 0:29:15  lr: 0.000059  loss: 0.974219 (0.974219)  time: 292.665009  data: 284.449890  max mem: 974
+Epoch: [89]  [5/6]  eta: 0:00:48  lr: 0.000059  loss: 0.751837 (0.775017)  time: 48.837963  data: 47.408401  max mem: 974
+Epoch: [89] Total time: 0:04:53 (48.983833 s / it)
+Averaged stats: lr: 0.000059  loss: 0.751837 (0.800830)
+Test:  [0/6]  eta: 0:22:05  loss: 0.232033 (0.232033)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 220.880478  data: 220.802658  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.429449 (0.849157)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 57.894592  data: 57.821178  max mem: 974
+Test: Total time: 0:05:48 (58.037843 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 89 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [90]  [0/6]  eta: 0:28:25  lr: 0.000049  loss: 0.863473 (0.863473)  time: 284.269592  data: 284.194855  max mem: 974
+Epoch: [90]  [5/6]  eta: 0:00:48  lr: 0.000049  loss: 0.838739 (0.828468)  time: 48.173641  data: 47.365902  max mem: 974
+Epoch: [90] Total time: 0:04:49 (48.318274 s / it)
+Averaged stats: lr: 0.000049  loss: 0.838739 (0.800498)
+Test:  [0/6]  eta: 0:22:12  loss: 0.232234 (0.232234)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.096481  data: 222.019501  max mem: 974
+Test:  [5/6]  eta: 0:00:57  loss: 0.428935 (0.849056)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 57.646557  data: 57.573399  max mem: 974
+Test: Total time: 0:05:46 (57.790834 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 90 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [91]  [0/6]  eta: 0:28:30  lr: 0.000040  loss: 0.907630 (0.907630)  time: 285.105377  data: 285.030792  max mem: 974
+Epoch: [91]  [5/6]  eta: 0:00:47  lr: 0.000040  loss: 0.757797 (0.736956)  time: 47.830425  data: 47.600311  max mem: 974
+Epoch: [91] Total time: 0:04:47 (47.980444 s / it)
+Averaged stats: lr: 0.000040  loss: 0.757797 (0.806525)
+Test:  [0/6]  eta: 0:22:09  loss: 0.232376 (0.232376)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.529861  data: 221.451797  max mem: 974
+Test:  [5/6]  eta: 0:00:56  loss: 0.429399 (0.848999)  c_kappa: 0.000000 (0.070148)  acc1: 81.250000 (71.759891)  acc5: 100.000000 (100.000000)  time: 56.008362  data: 55.934784  max mem: 974
+Test: Total time: 0:05:36 (56.159503 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 91 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [92]  [0/6]  eta: 0:28:39  lr: 0.000031  loss: 0.873058 (0.873058)  time: 286.613190  data: 286.538605  max mem: 974
+Epoch: [92]  [5/6]  eta: 0:00:47  lr: 0.000031  loss: 0.759622 (0.780633)  time: 47.834148  data: 47.756516  max mem: 974
+Epoch: [92] Total time: 0:04:47 (47.984673 s / it)
+Averaged stats: lr: 0.000031  loss: 0.759622 (0.808533)
+Test:  [0/6]  eta: 0:22:12  loss: 0.232851 (0.232851)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 222.060760  data: 221.982788  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.429707 (0.848945)  c_kappa: 0.000000 (0.070230)  acc1: 81.250000 (71.896317)  acc5: 100.000000 (100.000000)  time: 55.783375  data: 55.709549  max mem: 974
+Test: Total time: 0:05:35 (55.930339 s / it)
+* Acc@1 71.896 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 92 of the network on the 733 test images: 71.9%
+Max accuracy so far: 71.90%
+Epoch: [93]  [0/6]  eta: 0:28:41  lr: 0.000024  loss: 0.893760 (0.893760)  time: 286.870575  data: 279.419830  max mem: 974
+Epoch: [93]  [5/6]  eta: 0:00:47  lr: 0.000024  loss: 0.813498 (0.813307)  time: 47.884670  data: 46.579762  max mem: 974
+Epoch: [93] Total time: 0:04:48 (48.030483 s / it)
+Averaged stats: lr: 0.000024  loss: 0.813498 (0.808208)
+Test:  [0/6]  eta: 0:22:09  loss: 0.233067 (0.233067)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.556412  data: 221.479630  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430292 (0.848966)  c_kappa: 0.000000 (0.070230)  acc1: 81.250000 (71.896317)  acc5: 100.000000 (100.000000)  time: 55.868393  data: 55.795425  max mem: 974
+Test: Total time: 0:05:35 (55.991350 s / it)
+* Acc@1 71.896 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 93 of the network on the 733 test images: 71.9%
+Max accuracy so far: 71.90%
+Epoch: [94]  [0/6]  eta: 0:28:07  lr: 0.000018  loss: 0.869812 (0.869812)  time: 281.263947  data: 281.189331  max mem: 974
+Epoch: [94]  [5/6]  eta: 0:00:47  lr: 0.000018  loss: 0.721834 (0.776098)  time: 47.698242  data: 46.869724  max mem: 974
+Epoch: [94] Total time: 0:04:47 (47.845120 s / it)
+Averaged stats: lr: 0.000018  loss: 0.721834 (0.804242)
+Test:  [0/6]  eta: 0:22:08  loss: 0.233075 (0.233075)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.417191  data: 221.340088  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430201 (0.848949)  c_kappa: 0.000000 (0.070230)  acc1: 81.250000 (71.896317)  acc5: 100.000000 (100.000000)  time: 55.830978  data: 55.757549  max mem: 974
+Test: Total time: 0:05:35 (55.959430 s / it)
+* Acc@1 71.896 Acc@5 100.000 Cohens Kappa 0.070 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 94 of the network on the 733 test images: 71.9%
+Max accuracy so far: 71.90%
+Epoch: [95]  [0/6]  eta: 0:28:31  lr: 0.000012  loss: 0.667803 (0.667803)  time: 285.188812  data: 267.026703  max mem: 974
+Epoch: [95]  [5/6]  eta: 0:00:47  lr: 0.000012  loss: 0.816611 (0.823668)  time: 47.767136  data: 44.515812  max mem: 974
+Epoch: [95] Total time: 0:04:47 (47.914301 s / it)
+Averaged stats: lr: 0.000012  loss: 0.816611 (0.804917)
+Test:  [0/6]  eta: 0:22:11  loss: 0.233120 (0.233120)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.899933  data: 221.822754  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430337 (0.848972)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 55.766201  data: 55.693157  max mem: 974
+Test: Total time: 0:05:35 (55.903052 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 95 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [96]  [0/6]  eta: 0:28:28  lr: 0.000008  loss: 0.863616 (0.863616)  time: 284.828583  data: 274.667847  max mem: 974
+Epoch: [96]  [5/6]  eta: 0:00:47  lr: 0.000008  loss: 0.826204 (0.838831)  time: 47.839962  data: 45.788837  max mem: 974
+Epoch: [96] Total time: 0:04:47 (47.989265 s / it)
+Averaged stats: lr: 0.000008  loss: 0.826204 (0.803477)
+Test:  [0/6]  eta: 0:22:09  loss: 0.233202 (0.233202)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.622345  data: 221.545242  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430522 (0.848925)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 55.814716  data: 55.741608  max mem: 974
+Test: Total time: 0:05:35 (55.940939 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 96 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [97]  [0/6]  eta: 0:28:37  lr: 0.000004  loss: 0.778659 (0.778659)  time: 286.225647  data: 282.095306  max mem: 974
+Epoch: [97]  [5/6]  eta: 0:00:47  lr: 0.000004  loss: 0.778659 (0.792490)  time: 47.789059  data: 47.022038  max mem: 974
+Epoch: [97] Total time: 0:04:47 (47.936934 s / it)
+Averaged stats: lr: 0.000004  loss: 0.778659 (0.801921)
+Test:  [0/6]  eta: 0:22:10  loss: 0.233210 (0.233210)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.734100  data: 221.657288  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430553 (0.848919)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 55.854862  data: 55.781891  max mem: 974
+Test: Total time: 0:05:35 (55.991732 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 97 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [98]  [0/6]  eta: 0:28:30  lr: 0.000002  loss: 0.735688 (0.735688)  time: 285.038177  data: 283.626495  max mem: 974
+Epoch: [98]  [5/6]  eta: 0:00:47  lr: 0.000002  loss: 0.746182 (0.802995)  time: 47.746262  data: 47.356262  max mem: 974
+Epoch: [98] Total time: 0:04:47 (47.896069 s / it)
+Averaged stats: lr: 0.000002  loss: 0.746182 (0.800536)
+Test:  [0/6]  eta: 0:22:09  loss: 0.233209 (0.233209)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.574066  data: 221.497314  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430552 (0.848913)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 55.893829  data: 55.820892  max mem: 974
+Test: Total time: 0:05:36 (56.032216 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 98 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Epoch: [99]  [0/6]  eta: 0:28:28  lr: 0.000000  loss: 0.923675 (0.923675)  time: 284.761841  data: 282.219635  max mem: 974
+Epoch: [99]  [5/6]  eta: 0:00:47  lr: 0.000000  loss: 0.834147 (0.819167)  time: 47.814342  data: 47.036686  max mem: 974
+Epoch: [99] Total time: 0:04:47 (47.962382 s / it)
+Averaged stats: lr: 0.000000  loss: 0.834147 (0.804468)
+Test:  [0/6]  eta: 0:22:09  loss: 0.233212 (0.233212)  c_kappa: 0.000000 (0.000000)  acc1: 94.531250 (94.531250)  acc5: 100.000000 (100.000000)  time: 221.523697  data: 221.447250  max mem: 974
+Test:  [5/6]  eta: 0:00:55  loss: 0.430553 (0.848914)  c_kappa: 0.000000 (0.066756)  acc1: 80.468750 (71.759891)  acc5: 100.000000 (100.000000)  time: 55.749683  data: 55.676716  max mem: 974
+Test: Total time: 0:05:35 (55.894277 s / it)
+* Acc@1 71.760 Acc@5 100.000 Cohens Kappa 0.067 loss 0.849
+tensor([[ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 0,  0,  0,  0,  0],
+        [ 7,  0, 27,  0,  0],
+        [ 4,  2, 49,  0,  4]], device='cuda:0')
+Accuracy at epoch 99 of the network on the 733 test images: 71.8%
+Max accuracy so far: 71.90%
+Training of the supervised linear classifier on frozen features completed.
+Top-1 test accuracy: 71.9

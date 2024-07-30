@@ -38,20 +38,27 @@ def split_files(dir):
             os.rmdir(os.path.join(dir, label))
 
 def split_labels(dir):
-    ## define train and val csv files
-    train_pd = pd.DataFrame(columns=["label", "name", "n_fields"])
-    val_pd = pd.DataFrame(columns=["label", "name", "n_fields"])
-
     ## read the csv file
     df = pd.read_csv(dir)
+
+    ## add an 'id' column with the index values of the unique names
+    df_names = df["name"].unique()
+    for id, name in enumerate(df_names):
+        df.loc[df["name"] == name, "id"] = int(id)
+
+    ## get the unique labels
     labels = df["label"].unique()
+
+    ## define train and val csv files
+    train_pd = pd.DataFrame(columns=df.columns)
+    val_pd = pd.DataFrame(columns=df.columns)
 
     ## split each label into train and val
     for label in labels:
-        df_label = df[(df["label"] == label) & (df["n_fields"] >= 3)]
-        
-        train = df_label[:int(len(df_label)*0.8)]
-        val = df_label[int(len(df_label)*0.8):]
+        df_label = df[(df["label"] == label)]
+        names = df_label["name"].unique()
+        train = df_label[df_label["name"].isin(names[:int(len(names)*0.8)])]
+        val = df_label[df_label["name"].isin(names[int(len(names)*0.8):])]
 
         ## save the train and val split to the csv files
         train_pd = pd.concat([train_pd, train], ignore_index=True)
@@ -70,7 +77,7 @@ def main(mode):
 
     elif mode == "label":
         ## only need access to the label csv file where the labels and the names of the data are stored
-        dir = "/home/livieymli/retidino/mosaic/img_nfields.csv"
+        dir = "/home/livieymli/retidino/mosaic/img_xyr.csv"
         split_labels(dir)
     else:
         print("No mode specified or invalid mode")

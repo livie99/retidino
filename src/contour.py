@@ -42,8 +42,8 @@ def contour (dir, name):
         # Create a mask of the circle
         mask = np.zeros_like(gray)
         cropped_images = []
-        if detected_circles is not None:
-            for (x, y, r) in detected_circles[0, :, :]:
+        if detected_circles is not None and detected_circles.shape[1] > 2:
+            for (x, y, r) in detected_circles[0, :7, :]:
                 if x+y < 2000:
                     continue
                 
@@ -62,7 +62,7 @@ def contour (dir, name):
                 # Append the cropped image to a list
                 cropped_images.append(crop_image)
                 mask = np.zeros_like(mask)
-            
+                print(f"{dir[-2:]},{name},{x},{y},{r}", flush=True)
             # print("Image processed successfully.", flush=False)
             return cropped_images
         
@@ -92,15 +92,15 @@ def main():
         for _,name in enumerate(img_names):
             images = contour(eg_folder, name)
             # name = name.split(".")[0]
-            if images is not None:
-                # Save the cropped image
-                # for i,img in enumerate(images):
-                #     crop_path = f"/home/livieymli/retidino/ignore/cropped_{name}_{i}.jpg"
-                #     cv2.imwrite(crop_path, img)
-                print(f"{label}, {name}, {len(images)}", flush=True)
-            else:
-                print(f"{label}, {name}, -1", flush=True)
-                # pass
+            # if images is not None:
+            #     # Save the cropped image
+            #     # for i,img in enumerate(images):
+            #     #     crop_path = f"/home/livieymli/retidino/ignore/cropped_{name}_{i}.jpg"
+            #     #     cv2.imwrite(crop_path, img)
+            #     # print(f"{label}, {name}, {len(images)}", flush=True)
+            # else:
+            #     # print(f"{label}, {name}, -1", flush=True)
+            #     # pass
 
 if __name__ == "__main__":
     main()

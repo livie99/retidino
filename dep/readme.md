@@ -1,1 +1,0 @@
-The dependency shoudl be a clone of the repo:facebookresearch/dino 
