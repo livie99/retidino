@@ -57,16 +57,16 @@ def split_labels(dir):
     for label in labels:
         df_label = df[(df["label"] == label)]
         names = df_label["name"].unique()
-        train = df_label[df_label["name"].isin(names[:int(len(names)*0.8)])]
-        val = df_label[df_label["name"].isin(names[int(len(names)*0.8):])]
+        train = df_label[df_label["name"].isin(names[:int(len(names)*0.08)])]
+        val = df_label[df_label["name"].isin(names[int(len(names)*0.08) : int(len(names)*0.1)])]
 
         ## save the train and val split to the csv files
         train_pd = pd.concat([train_pd, train], ignore_index=True)
         val_pd = pd.concat([val_pd, val], ignore_index=True)
 
     ## save the csv files
-    train_pd.to_csv("train_s0.csv", index=False)
-    val_pd.to_csv("val_s0.csv", index=False)
+    train_pd.to_csv("train_10_s0.csv", index=False)
+    val_pd.to_csv("val_10_s0.csv", index=False)
 
     
 def main(mode):

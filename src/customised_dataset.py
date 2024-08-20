@@ -42,9 +42,9 @@ class Custom_dataset():
         self.transform = transform
 
         if data == 'train':
-            label_csv = "/home/livieymli/retidino/mosaic/train_s0.csv"
+            label_csv = "/home/livieymli/retidino/mosaic/train_10_s0.csv"
         elif data == 'val':
-            label_csv = "/home/livieymli/retidino/mosaic/val_s0.csv"
+            label_csv = "/home/livieymli/retidino/mosaic/val_10_s0.csv"
         else:
             raise Exception("Please specify the data type: 'train' or 'val'")
 
