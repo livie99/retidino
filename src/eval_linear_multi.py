@@ -227,10 +227,11 @@ def validate_network(val_loader, model, linear_classifier, n, avgpool):
     ## --@-@-- MODIFICATION STARTS --@-@--
     ## adjust to the output of the customized dataset
     # for inp, target in metric_logger.log_every(val_loader, 20, header):
-    log_df = pd.DataFrame(columns=['id', 'output_0', 'output_1', 'output_2', 'output_3', 'output_4', 'target'])
+    log_df = pd.DataFrame(columns=['id', '0', '1', '2', '3', '4', 'target'])
     for id, inp, target in metric_logger.log_every(val_loader, 20, header):
     ## --@-@-- MODIFICATION ENDS --@-@--
         # move to gpu
+        id = id.cuda(non_blocking=True)
         inp = inp.cuda(non_blocking=True)
         target = target.cuda(non_blocking=True)
 
@@ -270,18 +271,20 @@ def validate_network(val_loader, model, linear_classifier, n, avgpool):
 
         # --@-@-- MODIFICATION START --@-@--
         # get the out put of each input to calculate the prediction of each id
-        log = torch.cat((torch.unsqueeze(id,1), output, torch.unsqueeze(target,1)), 1)
-        log = pd.DataFrame(log.detach().numpy(), columns=['id', 'output_0', 'output_1', 'output_2', 'output_3', 'output_4', 'target'])
-        log_df = pd.concat([log_df, log], ignore_index=True)
+        log = torch.cat((torch.unsqueeze(id,1), output, torch.unsqueeze(target,1)), 1) 
+        log_cpu = pd.DataFrame(log.cpu().detach().numpy(), columns=['id', '0', '1', '2', '3', '4', 'target'])
+        log_df = pd.concat([log_df, log_cpu], ignore_index=True)
 
     log_df_grouped = log_df.groupby('id')
     group_tar = log_df_grouped['target'].unique()
-    group_tar = group_tar.values.astype('int64')
+    # group_tar = torch.from_numpy(group_tar.values.astype('int64'))
+    group_tar = torch.tensor(group_tar.values.astype('int64'), dtype=torch.int64)
     
     sum_outputs = log_df_grouped[['0', '1', '2', '3', '4']].sum()
     max_column = sum_outputs.idxmax(axis=1)
-    group_pred = max_column.values.astype('int64')
-    group_acc = Accuracy(task="multiclass", num_classes=linear_classifier.module.num_labels).to(output.device)(group_pred, group_tar)
+    # group_pred = torch.from_numpy(max_column.values.astype('int64'))
+    group_pred = torch.tensor(max_column.values.astype('int64'), dtype=torch.int64)
+    group_acc = Accuracy(task="multiclass", num_classes=linear_classifier.module.num_labels).to(output.device)(group_pred, group_tar) 
     group_kappa = CohenKappa(task="multiclass", num_classes=linear_classifier.module.num_labels).to(output.device)(group_pred, group_tar)
     metric_logger.meters['group_acc'].update(group_acc.item(), n=batch_size)
     metric_logger.meters['group_kappa'].update(group_kappa.item(), n=batch_size)
